@@ -1,3 +1,4 @@
+package Model;
 import java.util.ArrayList;
 
 
@@ -9,7 +10,7 @@ public class Room {
 	private boolean hasBeenEntered;
 	//private ArrayList<Item> itemList;
 	private ArrayList<Monsters> possibleMonsters;
-	//private Puzzle roomPuzzle;
+	private Puzzle roomPuzzle;
 	private ArrayList<Room> roomExits;
 	
 	public Room(int roomID, String roomName, String roomDescription, ArrayList<Monsters> possibleMonsters,
