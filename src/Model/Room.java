@@ -9,16 +9,18 @@ public class Room {
 	private String roomDescription;
 	private boolean hasBeenEntered;
 	//private ArrayList<Item> itemList;
+	private ArrayList<Doors> doorList;
 	private ArrayList<Monsters> possibleMonsters;
 	private Puzzle roomPuzzle;
 	private ArrayList<Room> roomExits;
 	
-	public Room(int roomID, String roomName, String roomDescription, ArrayList<Monsters> possibleMonsters,
+	public Room(int roomID, String roomName, String roomDescription, ArrayList<Doors> doorList, ArrayList<Monsters> possibleMonsters,
 			ArrayList<Room> roomExits) {
 		super();
 		this.roomID = roomID;
 		this.roomName = roomName;
 		this.roomDescription = roomDescription;
+		this.doorList = doorList;
 		this.hasBeenEntered = false; //should be false upon game start
 		this.possibleMonsters = possibleMonsters;
 		this.roomExits = roomExits;
@@ -39,5 +41,6 @@ public class Room {
 	public void exitRoom() {
 		//see system document for details
 	}
+	
 	
 }
