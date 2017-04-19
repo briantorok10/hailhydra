@@ -1,7 +1,7 @@
 package Model;
 import java.util.ArrayList;
 
-
+import Model.RoomLibrary;
 public class Room {
 
 	private int roomID;
@@ -39,6 +39,13 @@ public class Room {
 	public void exitRoom() {
 		//see system document for details
 	}
+
+	public int getRoomID()
+	{
+		return roomID;
+	}
+	
+	
 
 	
 	

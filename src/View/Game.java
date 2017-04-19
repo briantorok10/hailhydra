@@ -7,9 +7,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Model.Player;
+import Model.Room;
 import Model.Sleep;
 
 /**
@@ -19,6 +21,9 @@ import Model.Sleep;
  */
 public class Game
 {
+	private static Game game;
+	private ArrayList<Room> rooms;
+	
 	public void create(Player p) throws IOException{
 		{
 			Scanner input = new Scanner(System.in);
@@ -61,6 +66,7 @@ public class Game
 	}
 
 	public void load(Player p)
+
 	{
 		Sleep sleep = new Sleep();
 		long time = 3000;
@@ -88,5 +94,10 @@ public class Game
 			}
 		}
 		
+	}
+	
+	public static ArrayList<Room> getRooms() 
+	{
+		return new ArrayList<Room>(game.rooms);
 	}
 }
