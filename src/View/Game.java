@@ -58,7 +58,7 @@ public class Game
 	public void load(Player p)
 	{
 		Sleep sleep = new Sleep();
-		long l = 3000;
+		long time = 3000;
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter the username of the file you wish to load.");
@@ -76,7 +76,7 @@ public class Game
 				
 				Player.setUsername(name);
 				
-				System.out.println("Welcome back " + name);
+				System.out.println("Welcome back " + p.getUsername());
 			}catch(Exception e)
 			{
 				e.printStackTrace();
