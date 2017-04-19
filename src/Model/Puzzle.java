@@ -1,13 +1,15 @@
 package Model;
 import java.io.Serializable;
 
+/* Author: Jose Moreno */
+
 public class Puzzle implements Serializable
 {
 	private String puzzleName, puzzleID, solution, description, correctMSG, incorrectMSG, hint;
 	private boolean isSolved;
-	private Item item;
+	//private Item item;
 	public Puzzle(String puzzleName, String puzzleID, String solution, String description, String correctMSG,
-			String incorrectMSG, String hint, boolean isSolved, Item item)
+			String incorrectMSG, String hint, boolean isSolved/*, Item item*/)
 	{
 		this.puzzleName = puzzleName;
 		this.puzzleID = puzzleID;
@@ -17,7 +19,7 @@ public class Puzzle implements Serializable
 		this.incorrectMSG = incorrectMSG;
 		this.hint = hint;
 		this.isSolved = isSolved;
-		this.item = item;
+		//this.item = item;
 	}
 	public String getPuzzleName()
 	{
@@ -83,6 +85,7 @@ public class Puzzle implements Serializable
 	{
 		this.isSolved = isSolved;
 	}
+	/*
 	public Item getItem()
 	{
 		return item;
@@ -91,6 +94,9 @@ public class Puzzle implements Serializable
 	{
 		this.item = item;
 	}
+	*/
+	
+	Puzzle PUZ_1 = new Puzzle("Coin", "PUZ_1", "Coin", "What has a head and a tail, but no body?", "Congratulations, you received Copper Coin for solving the puzzle!", "This riddle ain't worth a cent of my time!","",false);
 	
 		
 }
