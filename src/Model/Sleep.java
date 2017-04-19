@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * 
+ * @author Jose Moreno
+ *
+ */
 public class Sleep
 {
 	public void Delay(long time)
