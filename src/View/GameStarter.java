@@ -5,6 +5,11 @@ import java.util.Scanner;
 import View.Game;
 import Model.Player;
 
+/**
+ * 
+ * @author Jose Moreno
+ *
+ */
 public class GameStarter
 {
 	public static void main (String [] args)

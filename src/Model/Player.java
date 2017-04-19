@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * 
+ * @author Jose Moreno
+ *
+ */
 public class Player
 {
 	public static String username;

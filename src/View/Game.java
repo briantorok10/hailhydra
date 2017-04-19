@@ -12,6 +12,11 @@ import java.util.Scanner;
 import Model.Player;
 import Model.Sleep;
 
+/**
+ * 
+ * @author Jose Moreno
+ *
+ */
 public class Game
 {
 	public void create(Player p) throws IOException{
