@@ -7,7 +7,7 @@ package Model;
  */
 public class Sleep
 {
-	public void Delay(long time)
+	public static void Delay(long time)
 	{
 		try
 		{

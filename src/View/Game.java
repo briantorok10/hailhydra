@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Model.Player;
-import Model.Room;
 import Model.Sleep;
+
 
 /**
  * 
@@ -22,7 +22,8 @@ import Model.Sleep;
 public class Game
 {
 	private static Game game;
-	private ArrayList<Room> rooms;
+	private Player player;
+	private int score;
 	
 	public void create(Player p) throws IOException{
 		{
@@ -40,9 +41,14 @@ public class Game
 				PrintWriter writer = new PrintWriter(new FileWriter(file));
 				writer.println(username);
 				writer.close();
+				Sleep.Delay(3000);
+				System.out.println();
+				System.out.println("Alright " + p.getUsername() + ", I need you to get on this\n" +
+									"train and get as much loot as possible! Good Luck!");
 
-			}
+			}input.close();
 		}
+		
 	}
 
 	public void save(Player p)
@@ -68,8 +74,6 @@ public class Game
 	public void load(Player p)
 
 	{
-		Sleep sleep = new Sleep();
-		long time = 3000;
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter the username of the file you wish to load.");
@@ -93,11 +97,28 @@ public class Game
 				e.printStackTrace();
 			}
 		}
+		input.close();
 		
 	}
 	
-	public static ArrayList<Room> getRooms() 
+	public Game(Player player)
 	{
-		return new ArrayList<Room>(game.rooms);
+		this.player = player;
+		this.score = 0;
 	}
+	
+	public static boolean initializeGame() 
+	{
+		Player p = new Player();
+		if(game == null) 
+		{
+			game = new Game(p);
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
+	}
+	
 }

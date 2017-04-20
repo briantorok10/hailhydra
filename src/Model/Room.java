@@ -15,7 +15,6 @@ public class Room {
 	
 	public Room(int roomID, String roomName, String roomDescription, ArrayList<Monsters> possibleMonsters,
 			ArrayList<Room> roomExits) {
-		super();
 		this.roomID = roomID;
 		this.roomName = roomName;
 		this.roomDescription = roomDescription;
