@@ -5,11 +5,17 @@ package Model;
  * @author Jose Moreno
  *
  */
-public class Player
+public class Player extends Character
 {
+	public Player(int characterID, String name, Room currentRoom)
+	{
+		super(characterID, name, currentRoom);
+
+	}
+
 	public static String username;
 
-	public String getUsername()
+	public static String getUsername()
 	{
 		return username;
 	}

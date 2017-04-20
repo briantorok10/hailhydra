@@ -1,7 +1,5 @@
 package Model;
 import java.util.ArrayList;
-
-import Model.RoomLibrary;
 public class Room {
 
 	private int roomID;
@@ -10,14 +8,15 @@ public class Room {
 	private boolean hasBeenEntered;
 	//private ArrayList<Item> itemList;
 	private ArrayList<Monsters> possibleMonsters;
-	private Puzzle roomPuzzle;
+	private Puzzle puzzle;
 	private ArrayList<Room> roomExits;
 	
-	public Room(int roomID, String roomName, String roomDescription, ArrayList<Monsters> possibleMonsters,
+	public Room(int roomID, String roomName, String roomDescription, Puzzle puzzle, ArrayList<Monsters> possibleMonsters,
 			ArrayList<Room> roomExits) {
 		this.roomID = roomID;
 		this.roomName = roomName;
 		this.roomDescription = roomDescription;
+		this.puzzle = puzzle;
 		this.hasBeenEntered = false; //should be false upon game start
 		this.possibleMonsters = possibleMonsters;
 		this.roomExits = roomExits;
@@ -43,6 +42,17 @@ public class Room {
 	{
 		return roomID;
 	}
+
+	public Puzzle getPuzzle()
+	{
+		return puzzle;
+	}
+
+	public void setPuzzle(Puzzle puzzle)
+	{
+		this.puzzle = puzzle;
+	}
+	
 	
 	
 

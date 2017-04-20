@@ -1,9 +1,9 @@
 package Model;
-import java.io.Serializable;
+
 
 /* Author: Jose Moreno */
 
-public class Puzzle implements Serializable
+public class Puzzle
 {
 	private String puzzleName, puzzleID, solution, description, correctMSG, incorrectMSG, hint;
 	private boolean isSolved;
@@ -96,7 +96,7 @@ public class Puzzle implements Serializable
 	}
 	*/
 	
-	Puzzle PUZ_1 = new Puzzle("Coin", "PUZ_1", "Coin", "What has a head and a tail, but no body?", "Congratulations, you received Copper Coin for solving the puzzle!", "This riddle ain't worth a cent of my time!","",false);
+	
 	
 		
 }

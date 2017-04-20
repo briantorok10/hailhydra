@@ -32,7 +32,7 @@ public abstract class Character implements Serializable
 		return name;
 	}
 
-	public Room getCurrentRoom()
+	public Room getRoom()
 	{
 		return currentRoom;
 	}

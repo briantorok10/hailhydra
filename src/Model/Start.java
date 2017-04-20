@@ -30,7 +30,7 @@ public class Start
 		
 		Scanner input = new Scanner(System.in);
 		Game game = new Game(null);
-		Player p = new Player();
+		Player p = new Player(0, null, null);
 		System.out.println("*++++++++++++++++++++++++++++++++++++++++++++*");
 		System.out.println();
 		System.out.println("Please make a selection:");
