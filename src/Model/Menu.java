@@ -38,10 +38,10 @@ public class Menu
 			System.out.println("Do you want to save the game? Y / N");			
 			if (Game.input.next() == "Y")
 			{
-				
+
 			}
 			else
-			System.exit(0);
+				System.exit(0);
 			break;
 		default:
 			System.out.println("Please enter 1 to create a new game, 2 to load a game, 3 to exit the game.");
