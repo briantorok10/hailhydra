@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import View.Game;
+
 public class Rooms
 {
 	private String ID, name, description;
-	private HashMap<String, Rooms> exits;
-	private HashMap<String, Item> itemList;
+	private HashMap<Integer, Rooms> exits;
+	private HashMap<Integer, Item> itemList;
 	private ArrayList<Monsters> monsters;
 	private ArrayList<Item> items;
 
@@ -17,11 +19,16 @@ public class Rooms
 		this.ID = ID;
 		this.name = name;
 		this.description = description;
-		exits = new HashMap<String, Rooms>();
+		exits = new HashMap<Integer, Rooms>();
 		items = new ArrayList<Item>();
 	}
 
-	public void setExit(String direction, Rooms connecting)
+	public String getID()
+	{
+		return ID;
+	}
+
+	public void setExit(int direction, Rooms connecting)
 	{
 		exits.put(direction, connecting);
 	}
@@ -40,18 +47,25 @@ public class Rooms
 		return description;
 	}
 	
-	private String getExits()
+	public String getExits()
 	{
 		String returnString = "Exits: ";
-		Set<String> keys = exits.keySet();
-		for (String exit : keys)
+		Set<Integer> keys = exits.keySet();
+		int i = 1;
+		for (int exit : keys)
 		{
-			returnString += " " + exit;
+			returnString += "\n" + i + ". " + exit;
+			i++;
 		}
 		return returnString;
 	}
 	
-	public Room getExit(String direction)
+	public String getExit(int direction)
+	{
+		return exits.get(direction).getDescription();
+	}
+	
+	public Rooms getNewRoom(String direction)
 	{
 		return exits.get(direction);
 	}
@@ -64,5 +78,15 @@ public class Rooms
 	public String getItem()
 	{
 		return items.toString();
+	}
+	
+	public static void moveRooms()
+	{
+		System.out.println(Game.currentRoom.getExits());
+		int move = Game.input.nextInt();
+		System.out.println(Game.currentRoom.getExit(move));
+		Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.getID());
+		System.out.println(Game.currentRoom.getID());
+		Menu.MainMenu();
 	}
 }

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import Model.Menu;
 import Model.Player;
 import Model.Rooms;
 import Model.Sleep;
@@ -24,14 +25,16 @@ public class Game
 	private static Game game;
 	private Player player;
 	private int score;
-	
+	public static Rooms currentRoom;
+	public static Scanner input = new Scanner(System.in);
+
 	public void create(Player p) throws IOException{
 		{
-			Scanner input = new Scanner(System.in);
+			//Scanner input = new Scanner(System.in);
 			System.out.println("Please enter username: ");
 			String user = input.next();
 			Player.setUsername(user);
-			String username = p.getUsername();
+			String username = Player.getUsername();
 			File file = new File(username + ".txt");
 			if(file.exists())
 			{
@@ -43,17 +46,17 @@ public class Game
 				writer.close();
 				Sleep.Delay(3000);
 				System.out.println();
-				System.out.println("Alright " + p.getUsername() + ", I need you to get on this\n" +
-									"train and get as much loot as possible! Good Luck!");
+				System.out.println("Alright " + Player.getUsername() + ", I need you to get on this\n" +
+						"train and get as much loot as possible! Good Luck!");
 
-			}input.close();
+			}
 		}
-		
+
 	}
 
 	public void save(Player p)
 	{
-		String username = p.getUsername();
+		String username = Player.getUsername();
 		File file = new File(username + ".txt");
 		if(file.exists())
 		{
@@ -74,7 +77,7 @@ public class Game
 	public void load(Player p)
 
 	{
-		
+
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter the username of the file you wish to load.");
 		String username = input.next();
@@ -88,32 +91,37 @@ public class Game
 				BufferedReader reader = new BufferedReader(new FileReader(file));
 				name = reader.readLine();
 				reader.close();
-				
+
 				Player.setUsername(name);
-				
-				System.out.println("Welcome back " + p.getUsername());
+
+				System.out.println("Welcome back " + Player.getUsername());
 			}catch(Exception e)
 			{
 				e.printStackTrace();
 			}
 		}
 		input.close();
-		
+
 	}
-	
-	public Game()
+
+	public static void printHelp()
 	{
-		this.score = 0;
+		System.out.println("---------HELP MENU---------");
+		System.out.println("Select one of the options from the main menu!");
+		System.out.println("Simple number input is required to progress!");
+		System.out.println("That means enter a single number... like 1 or 2 or maybe even 3!");
+		Menu.MainMenu();
 	}
-	
+
+
 	public static void initializeGame() 
 	{
 		Rooms C1_U, C1U_STE_1, C1U_BA_1, C1U_STE_2, C1U_PASS_1, C1U_BA_2, C1_L,
 		C1L_KT_1, C1L_DIN_1, C1L_BA_3, C2_U, C2U_BA_4, C2U_STE_3, C2U_STE_4, C2U_BA_5,
 		C2_L, C2L_BA_6, C2L_STE_10, C2L_STE_11, C2L_SIT_12, C3_U, C3U_BAR, C3U_LG_1,
 		C3U_LG_2, C3U_BA_7, C3_L, C3L_COAL_RM, C3L_RM, C3_STF_2, C3U_BA_8;
-		
-		C1_U = new Rooms("C1_U", "Upper Hallway 1", "You in the upper hallway of the first car.  Plenty to get pillage through up here.  Let's see, to the left is the Master Bedroom, Bathroom, and a secondary Bedroom Suite. To the right is the Passenger Seating to watch a movie, and a guest bathroom. Where do you want to go first?");
+
+		C1_U = new Rooms("C1_U", "Upper Hallway 1", "You in the upper hallway of the first car. Plenty to get pillage through up here.  Let's see, to the left is the Master Bedroom, Bathroom, and a secondary Bedroom Suite. To the right is the Passenger Seating to watch a movie, and a guest bathroom. Where do you want to go first?");
 		C1U_STE_1 = new Rooms("C1U_STE_1", "Master Bedroom Suite", "Sweet!  The Master Bedroom Suite, there are two large beds to your left and your right. There appears to be some jewelry on the left bed, and a sparkly item underneath the pillow on the right bed. The room appears deserted, but there seems to be some kind of noise coming from around the room.");
 		C1U_BA_1 = new Rooms("C1U_BA_1", "Bathroom 1", "You have entered the bathroom. Someone is in here. Yo! Do you know how to knock first? That's rude. And I don't like rude people so...time to meet your maker!");
 		C1U_STE_2 = new Rooms("C1U_STE_2", "Bedroom Suite 2", "Nice little bedroom for the back of the train.  It has one bed to the right of you; there might be something in there. You also see a dresser to the left, there appears to be a piece of paper attached to it, will you answer the riddle?");
@@ -145,14 +153,27 @@ public class Game
 		C3U_BA_8 = new Rooms("C3U_BA_8", "Bathroom 8", "You in the upper hallway of the first car.  Plenty to get pillage through up here.  Let's see, to the left is the Master Bedroom, Bathroom, and a secondary Bedroom Suite. To the right is the Passenger Seating to watch a movie, and a guest bathroom. Where do you want to go first?");
 
 		//UPPER HALLWAY EXITS
-		C1_U.setExit("1", C1U_STE_1);
-		C1_U.setExit("2", C1U_BA_1);
-		C1_U.setExit("3", C1U_STE_2);
-		C1_U.setExit("4", C1U_PASS_1);
-		C1_U.setExit("5", C1U_BA_2);
-		C1_U.setExit("6", C1_L);
+		C1_U.setExit(1, C1U_STE_1);
+		C1_U.setExit(2, C1U_BA_1);
+		C1_U.setExit(3, C1U_STE_2);
+		C1_U.setExit(4, C1U_PASS_1);
+		C1_U.setExit(5, C1U_BA_2);
+		C1_U.setExit(6, C1_L);
 
-		
+		currentRoom = C1_U;
+		System.out.println(currentRoom.getDescription());
+		Menu.MainMenu();
+
 	}
-	
+
+	public static void play()
+	{
+		boolean done = false;
+
+		while(!done)
+		{
+
+		}
+	}
+
 }

@@ -29,7 +29,7 @@ public class Start
 		System.out.println("\t     X  X  X  X  XXX  XXX    ");
 		
 		Scanner input = new Scanner(System.in);
-		Game game = new Game(null);
+		Game game = new Game();
 		Player p = new Player(0, null, null);
 		System.out.println("*++++++++++++++++++++++++++++++++++++++++++++*");
 		System.out.println();
@@ -53,6 +53,7 @@ public class Start
 				break;
 			default:
 				System.out.println("Please enter 1 to create a new game, 2 to load a game, 3 to exit the game.");
+				startMessage();
 				break;
 			}
 		}
