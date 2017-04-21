@@ -30,7 +30,7 @@ public class Game
 			System.out.println("Please enter username: ");
 			String user = input.next();
 			Player.setUsername(user);
-			String username = p.getUsername();
+			String username = p.getUsername();		
 			File file = new File(username + ".txt");
 			if(file.exists())
 			{
@@ -43,7 +43,7 @@ public class Game
 				Sleep.Delay(3000);
 				System.out.println();
 				System.out.println("Alright " + p.getUsername() + ", I need you to get on this\n" +
-						"train and get as much loot as possible! Good Luck!");
+						"train and get as much loot as possible! Good Luck!\n");
 
 			}
 		}
@@ -110,7 +110,7 @@ public class Game
 	}
 
 
-	public static void initializeGame() 
+	public static void initializeGame(Player p) 
 	{
 		Rooms C1_U, C1U_STE_1, C1U_BA_1, C1U_STE_2, C1U_PASS_1, C1U_BA_2, C1_L,
 		C1L_KT_1, C1L_DIN_1, C1L_BA_3, C2_U, C2U_BA_4, C2U_STE_3, C2U_STE_4, C2U_BA_5,
@@ -169,8 +169,9 @@ public class Game
 		C1_L.setExit(0, C1_U);
 
 		//begin = "C1_U";
-		currentRoom = C1_U;
-		System.out.println(currentRoom.getDescription());
+		p.setCurrentRoom(C1_U);
+	
+		System.out.println(p.getCurrentRoom().getDescription());
 		Menu.MainMenu();
 
 	}

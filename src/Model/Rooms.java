@@ -134,10 +134,10 @@ public class Rooms
 		//System.out.println(Game.currentRoom.getID());
 		System.out.println(Game.currentRoom.displayExits());
 		int move = Game.input.nextInt();
+		
 		System.out.println(Game.currentRoom.displayDescription(move));
 		Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
 		//Game.currentRoom = roomNames.get(move);
-
 		//System.out.println(Game.currentRoom.getID());
 		Menu.MainMenu();
 	}

@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Player extends Character
 {
+	private static Rooms room;
 	private static String username;
 	private static int score;
 	private ArrayList<Item> inventory;
@@ -17,7 +18,7 @@ public class Player extends Character
 		super();
 	}
 	
-	public Player(int characterID, String name, Room currentRoom) {
+	public Player(int characterID, String name, Rooms currentRoom) {
 		super(characterID, name, currentRoom);
 		// TODO Auto-generated constructor stub
 	}
@@ -42,6 +43,18 @@ public class Player extends Character
 	{
 		return inventory;
 	}
+	
+	public Rooms getCurrentRoom()
+	{
+		return currentRoom;
+	}
+	
+	public void setCurrentRoom(Rooms currentRoom)
+	{
+		Player.room = currentRoom;
+	}
+	
+	
 	
 	//Goes through the battle process
 	public static void attack(Player p, Monsters m)

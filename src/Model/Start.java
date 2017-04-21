@@ -41,7 +41,7 @@ public class Start
 			{
 			case 1:
 				game.create(p);
-				Game.initializeGame();
+				Game.initializeGame(p);
 				break;
 			case 2:
 				game.load(p);

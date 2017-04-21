@@ -13,7 +13,7 @@ public abstract class Character implements Serializable
 {
 	protected int characterID;
 	protected String name;
-	protected Room currentRoom;
+	protected Rooms currentRoom;
 	
 	protected Character()
 	{
@@ -22,7 +22,7 @@ public abstract class Character implements Serializable
 		this.currentRoom = null;
 	}
 	
-	protected Character(int characterID, String name, Room currentRoom)
+	protected Character(int characterID, String name, Rooms currentRoom)
 	{
 		this.characterID = characterID;
 		this.name = name;
@@ -39,7 +39,7 @@ public abstract class Character implements Serializable
 		return name;
 	}
 
-	public Room getRoom()
+	public Rooms getRoom()
 	{
 		return currentRoom;
 	}
