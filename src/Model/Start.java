@@ -28,7 +28,7 @@ public class Start
 		
 		Scanner input = new Scanner(System.in);
 		Game game = new Game();
-		Player p = new Player(0, null, null);
+		Player p = new Player(0, null);
 		System.out.println("*++++++++++++++++++++++++++++++++++++++++++++*");
 		System.out.println();
 		System.out.println("Please make a selection:");
@@ -41,7 +41,7 @@ public class Start
 			{
 			case 1:
 				game.create(p);
-				Game.initializeGame(p);
+				Game.initializeGame();
 				break;
 			case 2:
 				game.load(p);

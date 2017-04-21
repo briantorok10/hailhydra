@@ -13,20 +13,21 @@ public abstract class Character implements Serializable
 {
 	protected int characterID;
 	protected String name;
-	protected Rooms currentRoom;
+	protected static Rooms currentRoom;
+	protected static Rooms room;
 	
 	protected Character()
 	{
 		this.characterID = 000;
 		this.name = null;
-		this.currentRoom = null;
+		Character.currentRoom = null;
 	}
 	
 	protected Character(int characterID, String name, Rooms currentRoom)
 	{
 		this.characterID = characterID;
 		this.name = name;
-		this.currentRoom = currentRoom;
+		Character.currentRoom = currentRoom;
 	}
 
 	public int getCharacterID()
@@ -38,23 +39,15 @@ public abstract class Character implements Serializable
 	{
 		return name;
 	}
-
-	public Rooms getRoom()
+	
+	public Rooms getCurrentRoom()
 	{
 		return currentRoom;
 	}
 	
-	public String gamble(double probability)
+	public void setCurrentRoom(Rooms currentRoom)
 	{
-		Random r = new Random();
-		double d = r.nextDouble();
-		
-		if(1 - probability >= d )
-		{
-			return "You lose!";
-		}
-		return "Winner";
+		Character.room = currentRoom;
 	}
-	
 	
 }

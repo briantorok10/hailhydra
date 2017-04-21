@@ -18,7 +18,7 @@ public class Player extends Character
 		super();
 	}
 	
-	public Player(int characterID, String name, Rooms currentRoom) {
+	public Player(int characterID, String name) {
 		super(characterID, name, currentRoom);
 		// TODO Auto-generated constructor stub
 	}
@@ -44,15 +44,7 @@ public class Player extends Character
 		return inventory;
 	}
 	
-	public Rooms getCurrentRoom()
-	{
-		return currentRoom;
-	}
-	
-	public void setCurrentRoom(Rooms currentRoom)
-	{
-		Player.room = currentRoom;
-	}
+
 	
 	
 	

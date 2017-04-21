@@ -72,6 +72,10 @@ public class Rooms
 		return returnString;
 	}
 
+	public int displayID(int direction)
+	{
+		return exits.get(direction).getID();
+	}
 	public String displayName(int direction)
 	{
 		return exits.get(direction).getName();
@@ -133,8 +137,7 @@ public class Rooms
 		roomNames.add("C3U_BA_8");
 		//System.out.println(Game.currentRoom.getID());
 		System.out.println(Game.currentRoom.displayExits());
-		int move = Game.input.nextInt();
-		
+		int move = Game.input.nextInt();	
 		System.out.println(Game.currentRoom.displayDescription(move));
 		Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
 		//Game.currentRoom = roomNames.get(move);

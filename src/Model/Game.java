@@ -110,7 +110,7 @@ public class Game
 	}
 
 
-	public static void initializeGame(Player p) 
+	public static void initializeGame() 
 	{
 		Rooms C1_U, C1U_STE_1, C1U_BA_1, C1U_STE_2, C1U_PASS_1, C1U_BA_2, C1_L,
 		C1L_KT_1, C1L_DIN_1, C1L_BA_3, C2_U, C2U_BA_4, C2U_STE_3, C2U_STE_4, C2U_BA_5,
@@ -169,9 +169,8 @@ public class Game
 		C1_L.setExit(0, C1_U);
 
 		//begin = "C1_U";
-		p.setCurrentRoom(C1_U);
-	
-		System.out.println(p.getCurrentRoom().getDescription());
+		currentRoom= C1_U;
+		System.out.println(Game.currentRoom.getDescription());
 		Menu.MainMenu();
 
 	}
