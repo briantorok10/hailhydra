@@ -15,6 +15,13 @@ public abstract class Character implements Serializable
 	protected String name;
 	protected Room currentRoom;
 	
+	protected Character()
+	{
+		this.characterID = 000;
+		this.name = null;
+		this.currentRoom = null;
+	}
+	
 	protected Character(int characterID, String name, Room currentRoom)
 	{
 		this.characterID = characterID;

@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Jose Moreno
  *
  */
-public class Item implements Serializable
+public abstract class Item implements Serializable //needs to be abstract for effect() method
 {
 	private String name;
 	private String description;
@@ -30,5 +30,7 @@ public class Item implements Serializable
 	{
 		return itemID;
 	}
+	
+	public abstract void effect();//should be used by each item type (add points, increase luck, etc.)
 		
 }

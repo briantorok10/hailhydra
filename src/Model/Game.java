@@ -30,7 +30,7 @@ public class Game
 			System.out.println("Please enter username: ");
 			String user = input.next();
 			Player.setUsername(user);
-			String username = Player.getUsername();
+			String username = p.getUsername();
 			File file = new File(username + ".txt");
 			if(file.exists())
 			{
@@ -42,7 +42,7 @@ public class Game
 				writer.close();
 				Sleep.Delay(3000);
 				System.out.println();
-				System.out.println("Alright " + Player.getUsername() + ", I need you to get on this\n" +
+				System.out.println("Alright " + p.getUsername() + ", I need you to get on this\n" +
 						"train and get as much loot as possible! Good Luck!");
 
 			}
@@ -52,7 +52,7 @@ public class Game
 
 	public void save(Player p)
 	{
-		String username = Player.getUsername();
+		String username = p.getUsername();
 		File file = new File(username + ".txt");
 		if(file.exists())
 		{
@@ -90,7 +90,7 @@ public class Game
 
 				Player.setUsername(name);
 
-				System.out.println("Welcome back " + Player.getUsername());
+				System.out.println("Welcome back " + p.getUsername());
 			}catch(Exception e)
 			{
 				e.printStackTrace();

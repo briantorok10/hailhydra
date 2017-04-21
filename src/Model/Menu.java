@@ -29,7 +29,7 @@ public class Menu
 			Rooms.moveRooms();
 			break;
 		case 2:
-
+			
 			break;
 		case 3:
 			Game.printHelp();

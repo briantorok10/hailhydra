@@ -1,27 +1,70 @@
 package Model;
 import java.util.ArrayList;
 
-public class Monsters
+public class Monsters extends Character
 {
-	private String name;
-//	private Item dropItems;
+	private Item dropItems;
 	private int scoreLoss;
 	private double chance;
 	private String enterStatement;
 	private String winStatement;
 	private String exitStatement;
+	private boolean isDefeated;
 	
-	
-	public Monsters(String name, /*Item dropItems,*/ int scoreLoss, double chance, String enterStatement,
-			String winStatement, String exitStatement)
+	Monsters()
 	{
 		super();
-		this.name = name;
-//		this.dropItems = dropItems;
+	}
+	
+	public Monsters(int characterID, String name, Room currentRoom, Item dropItems, int scoreLoss, double chance,
+			String enterStatement, String winStatement, String exitStatement) {
+		super(characterID, name, currentRoom);
+		this.dropItems = dropItems;
 		this.scoreLoss = scoreLoss;
 		this.chance = chance;
 		this.enterStatement = enterStatement;
 		this.winStatement = winStatement;
 		this.exitStatement = exitStatement;
+		this.isDefeated = false;
+	}
+	
+	public Item getDropItems() {
+		return dropItems;
+	}
+	public void setDropItems(Item dropItems) {
+		this.dropItems = dropItems;
+	}
+	public int getScoreLoss() {
+		return scoreLoss;
+	}
+	public void setScoreLoss(int scoreLoss) {
+		this.scoreLoss = scoreLoss;
+	}
+	public double getChance() {
+		return chance;
+	}
+	public void setChance(double chance) {
+		this.chance = chance;
+	}
+	public String getEnterStatement() {
+		return enterStatement;
+	}
+	public String getWinStatement() {
+		return winStatement;
+	}
+	public String getExitStatement() {
+		return exitStatement;
+	}
+	public boolean getIsDefeated() {
+		return isDefeated;
+	}
+	public void setIsDefeated(boolean b)
+	{
+		this.isDefeated = b;
+	}
+	
+	public void remove()//disables enemy
+	{
+		setIsDefeated(true);
 	}
 }
