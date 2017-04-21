@@ -10,13 +10,14 @@ import java.util.Set;
  */
 public class Rooms
 {
-	private String ID, name, description;
+	int ID;
+	private String name, description;
 	private HashMap<Integer, Rooms> exits;
 	private HashMap<Integer, Item> itemList;
 	private ArrayList<Monsters> monsters;
 	private ArrayList<Item> items;
 
-	public Rooms(String ID, String name, String description)
+	public Rooms(int ID, String name, String description)
 	{
 		this.ID = ID;
 		this.name = name;
@@ -25,13 +26,11 @@ public class Rooms
 		items = new ArrayList<Item>();
 	}
 
-	public String getID()
+	public int getID()
 	{
 		return ID;
 	}
 	
-	
-
 	public String getName()
 	{
 		return name;
@@ -40,6 +39,7 @@ public class Rooms
 	public void setExit(int direction, Rooms connecting)
 	{
 		exits.put(direction, connecting);
+		
 	}
 	
 	public String getDescription()
@@ -56,7 +56,7 @@ public class Rooms
 		return description;
 	}
 	
-	public String getExits()
+	public String displayExits()
 	{
 		String returnString = "Exits: ";
 		Set<Integer> keys = exits.keySet();
@@ -69,14 +69,14 @@ public class Rooms
 		return returnString;
 	}
 	
-	public String getExit(int direction)
+	public String displayDescription(int direction)
 	{
 		return exits.get(direction).getDescription();
 	}
 	
-	public Rooms getNewRoom(String direction)
+	public Rooms getNewRoom(Rooms rooms)
 	{
-		return exits.get(direction);
+		return exits.get(rooms);
 	}
 	
 	public void addItem(Item i)
@@ -91,11 +91,12 @@ public class Rooms
 	
 	public static void moveRooms()
 	{
-		System.out.println(Game.currentRoom.getExits());
+		//System.out.println(Game.currentRoom.getID());
+		System.out.println(Game.currentRoom.displayExits());
 		int move = Game.input.nextInt();
-		System.out.println(Game.currentRoom.getExit(move));
-		Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.getID());
-		System.out.println(Game.currentRoom.getID());
+		System.out.println(Game.currentRoom.displayDescription(move));
+		Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
+		//System.out.println(Game.currentRoom.getID());
 		Menu.MainMenu();
 	}
 }
