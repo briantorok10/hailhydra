@@ -12,16 +12,19 @@ public class Rooms
 {
 	int ID;
 	private String name, description;
+	private Puzzle puzzle;
+	private Item item;
+	private Monsters monster;
 	private HashMap<Integer, Rooms> exits;
-	//private HashMap<Integer, Item> itemList;
-	//private ArrayList<Monsters> monsters;
-	//private ArrayList<Item> items;
 
-	public Rooms(int ID, String name, String description)
+	public Rooms(int ID, String name, String description, Puzzle puzzle, Monsters monster, Item item)
 	{
 		this.ID = ID;
 		this.name = name;
 		this.description = description;
+		this.puzzle = puzzle;
+		this.monster = monster;
+		this.item = item;
 		exits = new HashMap<Integer, Rooms>();
 		//items = new ArrayList<Item>();
 	}
@@ -63,16 +66,20 @@ public class Rooms
 		int i = 1;
 		for (int exit : keys)
 		{
-			returnString += "\n" + i + ". " + exit;
+			returnString += "\n" + exit + ". " + displayName(exit);
 			i++;
 		}
 		return returnString;
 	}
 
-	public int displayDescription(int direction)
+	public String displayName(int direction)
 	{
-		//return exits.get(direction).getDescription();
-		return exits.get(direction).getID();
+		return exits.get(direction).getName();
+	}
+	public String displayDescription(int direction)
+	{
+		return exits.get(direction).getDescription();
+		//return exits.get(direction).getID();
 	}
 
 	public Rooms getNewRoom(Rooms rooms)
@@ -127,7 +134,6 @@ public class Rooms
 		//System.out.println(Game.currentRoom.getID());
 		System.out.println(Game.currentRoom.displayExits());
 		int move = Game.input.nextInt();
-
 		System.out.println(Game.currentRoom.displayDescription(move));
 		Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
 		//Game.currentRoom = roomNames.get(move);
