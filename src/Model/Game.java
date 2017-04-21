@@ -1,4 +1,4 @@
-package View;
+package Model;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,11 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-
-import Model.Menu;
-import Model.Player;
-import Model.Rooms;
-import Model.Sleep;
 
 
 /**
@@ -159,6 +154,8 @@ public class Game
 		C1_U.setExit(4, C1U_PASS_1);
 		C1_U.setExit(5, C1U_BA_2);
 		C1_U.setExit(6, C1_L);
+		
+		C1U_STE_1.setExit(1, C1_U);
 
 		currentRoom = C1_U;
 		System.out.println(currentRoom.getDescription());

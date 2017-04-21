@@ -2,9 +2,11 @@ package Model;
 
 import java.util.Scanner;
 
-import View.Game;
-
-
+/**
+ * 
+ * @author Jose Moreno
+ *
+ */
 
 public class Menu
 {
@@ -33,6 +35,12 @@ public class Menu
 			Game.printHelp();
 			break;
 		case 4:
+			System.out.println("Do you want to save the game? Y / N");			
+			if (Game.input.next() == "Y")
+			{
+				
+			}
+			else
 			System.exit(0);
 			break;
 		default:

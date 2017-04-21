@@ -2,8 +2,6 @@ package Model;
 
 import java.io.IOException;
 import java.util.Scanner;
-
-import View.Game;
 /**
  * 
  * @author Jose Moreno

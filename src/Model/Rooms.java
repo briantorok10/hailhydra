@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import View.Game;
-
+/**
+ * 
+ * @author Jose Moreno
+ */
 public class Rooms
 {
 	private String ID, name, description;
@@ -26,6 +28,13 @@ public class Rooms
 	public String getID()
 	{
 		return ID;
+	}
+	
+	
+
+	public String getName()
+	{
+		return name;
 	}
 
 	public void setExit(int direction, Rooms connecting)
