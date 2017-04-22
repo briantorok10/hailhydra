@@ -17,8 +17,9 @@ public class Rooms
 	private Item item;
 	private Monsters monster;
 	private HashMap<Integer, Rooms> exits;
+	private boolean entered;
 
-	public Rooms(int ID, String name, String description, Puzzle puzzle, Monsters monster, Item item)
+	public Rooms(int ID, String name, String description, Puzzle puzzle, Monsters monster, Item item,boolean entered)
 	{
 		this.ID = ID;
 		this.name = name;
@@ -26,6 +27,7 @@ public class Rooms
 		this.puzzle = puzzle;
 		this.monster = monster;
 		this.item = item;
+		this.entered = entered;
 		exits = new HashMap<Integer, Rooms>();
 		//items = new ArrayList<Item>();
 	}
@@ -44,6 +46,18 @@ public class Rooms
 	{
 		exits.put(direction, connecting);
 
+	}
+	
+	
+
+	public boolean isEntered()
+	{
+		return entered;
+	}
+
+	public void setEntered(boolean entered)
+	{
+		this.entered = entered;
 	}
 
 	public String getDescription()
@@ -64,11 +78,9 @@ public class Rooms
 	{
 		String returnString = "Exits: ";
 		Set<Integer> keys = exits.keySet();
-		int i = 1;
 		for (int exit : keys)
 		{
 			returnString += "\n" + exit + ". " + displayName(exit);
-			i++;
 		}
 		return returnString;
 	}
@@ -105,8 +117,6 @@ public class Rooms
 
 	public static void moveRooms()
 	{
-		
-		//System.out.println(Game.currentRoom.getID());
 		System.out.println(Game.currentRoom.displayExits());
 		int move = Game.input.nextInt();
 	
@@ -119,11 +129,6 @@ public class Rooms
 				Game.setCurrentRoom(r);
 			}
 		}
-		
-		
-		//Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
-		//Game.currentRoom = roomNames.get(move);
-		//System.out.println(Game.currentRoom.getID());
 		Menu.MainMenu();
 	}
 }
