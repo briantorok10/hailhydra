@@ -29,7 +29,23 @@ public class Menu
 			Rooms.moveRooms();
 			break;
 		case 2:
-			
+			System.out.println("Your Score: " + Game.player.getScore());
+			System.out.println("This is what you're lugging around:");
+			//Still needs some work
+			/*
+			if (Game.player.getInventory().isEmpty())
+			{
+				System.out.println("You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
+			}
+			else
+			{
+				for (Item i: Game.player.getInventory())
+				{
+					System.out.println(i.getName());
+				}
+			}
+			*/
+			Menu.MainMenu();
 			break;
 		case 3:
 			Game.printHelp();
