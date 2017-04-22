@@ -11,7 +11,7 @@ public class Player extends Character
 	private static Rooms room;
 	private static String username;
 	private static int score;
-	private ArrayList<Item> inventory;
+	static ArrayList<Item> inventory;
 
 	public Player()
 	{
@@ -31,7 +31,7 @@ public class Player extends Character
 	{
 		Player.username = username;
 	}
-	public int getScore()
+	public static int getScore()
 	{
 		return score;
 	}
@@ -44,6 +44,16 @@ public class Player extends Character
 		return inventory;
 	}
 	
+	public static void increaseScore(int x)
+	{
+		score += x;
+	}
+	
+	public static void decreaseScore(int x)
+	{
+		score -= x;
+	}
+	
 
 	
 	
@@ -51,19 +61,21 @@ public class Player extends Character
 	//Goes through the battle process
 	public static void attack(Player p, Monsters m)
 	{
-		System.out.println(m.getEnterStatement());
 		double playerChance = Math.random();
 		if (playerChance >= m.getChance())
 		{
 			//Lose Condition
 			Player.setScore(p.getScore() - m.getScoreLoss());
 			System.out.println("Looks like you weren't so lucky this time 'round");
+			Menu.CombatMenu();
 		}
 		else
 		{
 			//win condition
 			m.remove();
+			Player.increaseScore(Game.currentRoom.getMonsters().getScoreLoss());
 			System.out.println(m.getWinStatement());
+			Menu.MainMenu();
 		}
 	}
 	

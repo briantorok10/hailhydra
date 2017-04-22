@@ -31,6 +31,24 @@ public class Menu
 			break;
 		case 2:
 
+			System.out.println("Your Score: " + Game.player.getScore());
+			System.out.println("This is what you're lugging around:");
+			//Still needs some work
+			/*
+			if (Game.player.getInventory().isEmpty())
+			{
+				System.out.println("You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
+			}
+			else
+			{
+				for (Item i: Game.player.getInventory())
+				{
+					System.out.println(i.getName());
+				}
+			}
+			*/
+			Menu.MainMenu();
+
 			break;
 		case 3:
 			Game.printHelp();
@@ -93,6 +111,30 @@ public class Menu
 
 	public static void CombatMenu()
 	{
+
+		System.out.println(Game.currentRoom.getMonsters().getEnterStatement());
+		System.out.println("What would you like to do?");
+		System.out.println("1. Attack " + Game.currentRoom.getMonster().getName());
+		System.out.println("2. Run");
+		System.out.println("3. Use Item");
+
+
+		String options = input.next();
+		
+		if (options.equals("1"))
+		{
+			Player.attack(Game.player, Game.currentRoom.getMonster());
+		}else if(options.equals("2"))
+		{
+			Rooms.moveRooms();
+		}else if(options.equals("3"))
+		{
+			Menu.CombatMenu();
+		}else
+		{
+			System.out.println("That's not a valid option. Try typing 1, 2, or 3.\n");
+			Menu.CombatMenu();
+		}
 
 	}
 }
