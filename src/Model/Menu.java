@@ -77,22 +77,21 @@ public class Menu
 		System.out.println("3. Use Item");
 
 
-		int options = input.nextInt();
-
-		switch(options)	{
-
-		case 1:
+		String options = input.next();
+		
+		if (options.equals("1"))
+		{
 			Player.attack(Game.player, Game.currentRoom.getMonster());
-			break;
-		case 2:
+		}else if(options.equals("2"))
+		{
 			Rooms.moveRooms();
-			break;
-		case 3:
-			Game.printHelp();
-			break;
-		default:
-			System.out.println("Please enter 1 to create a new game, 2 to load a game, 3 to exit the game.");
-			break;
+		}else if(options.equals("3"))
+		{
+			Menu.CombatMenu();
+		}else
+		{
+			System.out.println("That's not a valid option. Try typing 1, 2, or 3.\n");
+			Menu.CombatMenu();
 		}
 	}
 }
