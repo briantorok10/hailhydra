@@ -54,6 +54,29 @@ public class Menu
 	
 	public static void CombatMenu()
 	{
-		
+		System.out.println(Game.currentRoom.getMonsters().getEnterStatement());
+		System.out.println("What would you like to do?");
+		System.out.println("1. Attack " + Game.currentRoom.getMonster().getName());
+		System.out.println("2. Run");
+		System.out.println("3. Use Item");
+
+
+		int options = input.nextInt();
+
+		switch(options)	{
+
+		case 1:
+			Player.attack(Game.player, Game.currentRoom.getMonster());
+			break;
+		case 2:
+			Rooms.moveRooms();
+			break;
+		case 3:
+			Game.printHelp();
+			break;
+		default:
+			System.out.println("Please enter 1 to create a new game, 2 to load a game, 3 to exit the game.");
+			break;
+		}
 	}
 }

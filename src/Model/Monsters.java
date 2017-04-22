@@ -16,7 +16,7 @@ public class Monsters extends Character
 		super();
 	}
 	
-	public Monsters(int characterID, String name, Rooms currentRoom, Item dropItems, int scoreLoss, double chance,
+	public Monsters(int characterID, String name, Item dropItems, int scoreLoss, double chance,
 			String enterStatement, String winStatement, String exitStatement) {
 		super(characterID, name, currentRoom);
 		this.dropItems = dropItems;

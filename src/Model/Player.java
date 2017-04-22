@@ -51,19 +51,20 @@ public class Player extends Character
 	//Goes through the battle process
 	public static void attack(Player p, Monsters m)
 	{
-		System.out.println(m.getEnterStatement());
 		double playerChance = Math.random();
 		if (playerChance >= m.getChance())
 		{
 			//Lose Condition
 			Player.setScore(p.getScore() - m.getScoreLoss());
 			System.out.println("Looks like you weren't so lucky this time 'round");
+			Menu.CombatMenu();
 		}
 		else
 		{
 			//win condition
 			m.remove();
 			System.out.println(m.getWinStatement());
+			Menu.MainMenu();
 		}
 	}
 	

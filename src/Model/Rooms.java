@@ -19,7 +19,7 @@ public class Rooms
 	private HashMap<Integer, Rooms> exits;
 	private boolean entered;
 
-	public Rooms(int ID, String name, String description, Puzzle puzzle, Monsters monster, Item item,boolean entered)
+	public Rooms(int ID, String name, String description, Puzzle puzzle, Monsters monster, Item item, boolean entered)
 	{
 		this.ID = ID;
 		this.name = name;
@@ -46,6 +46,10 @@ public class Rooms
 	{
 		exits.put(direction, connecting);
 
+	}
+	public Monsters getMonsters()
+	{
+		return monster;
 	}
 	
 	
@@ -103,6 +107,16 @@ public class Rooms
 	{
 		return exits.get(rooms);
 	}
+	
+	public boolean hasMonsters()
+	{
+		if(monster == null)
+		{
+			return false;
+		}
+		else
+			return true;
+	}
 
 	//	public void addItem(Item i)
 	//	{
@@ -129,6 +143,16 @@ public class Rooms
 				Game.setCurrentRoom(r);
 			}
 		}
-		Menu.MainMenu();
+		
+		if (Game.getCurrentRoom().hasMonsters())
+		{
+			Menu.CombatMenu();
+		}
+		else
+			Menu.MainMenu();
+	}
+
+	public Monsters getMonster() {
+		return monster;
 	}
 }
