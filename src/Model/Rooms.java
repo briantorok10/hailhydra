@@ -49,6 +49,12 @@ public class Rooms
 	}
 	
 	
+	
+
+	public Puzzle getPuzzle()
+	{
+		return puzzle;
+	}
 
 	public boolean isEntered()
 	{
@@ -129,6 +135,11 @@ public class Rooms
 				Game.setCurrentRoom(r);
 			}
 		}
+		if(Game.currentRoom.getPuzzle() != null)
+		{
+			Menu.PuzzleMenu();
+		}
+		else
 		Menu.MainMenu();
 	}
 }

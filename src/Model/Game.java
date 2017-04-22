@@ -122,6 +122,10 @@ public class Game
 
 	public static void initializeGame() 
 	{
+		Puzzle P1;
+		
+		P1 = new Puzzle("Trial",0,"Skull","Skull is the answer","Correct!","Wrong!","I said the answer is Skull",false,null);
+		
 		Rooms C1_U, C1U_STE_1, C1U_BA_1, C1U_STE_2, C1U_PASS_1, C1U_BA_2, C1_L,
 		C1L_KT_1, C1L_DIN_1, C1L_BA_3, C2_U, C2U_BA_4, C2U_STE_3, C2U_STE_4, C2U_BA_5,
 		C2_L, C2L_BA_6, C2L_STE_10, C2L_STE_11, C2L_SIT_12, C3_U, C3U_BAR, C3U_LG_1,
@@ -129,7 +133,7 @@ public class Game
 
 		C1_U = new Rooms(0, "Upper Hallway 1", "You in the upper hallway of the first car. Plenty to get pillage through up here.  Let's see, to the left is the Master Bedroom, Bathroom, and a secondary Bedroom Suite. To the right is the Passenger Seating to watch a movie, and a guest bathroom. Where do you want to go first?",null,null,null,false);
 		C1U_STE_1 = new Rooms(1, "Master Bedroom Suite", "Sweet!  The Master Bedroom Suite, there are two large beds to your left and your right. There appears to be some jewelry on the left bed, and a sparkly item underneath the pillow on the right bed. The room appears deserted, but there seems to be some kind of noise coming from around the room.",null,null,null,false);
-		C1U_BA_1 = new Rooms(2, "Bathroom 1", "You have entered the bathroom. Someone is in here. Yo! Do you know how to knock first? That's rude. And I don't like rude people so...time to meet your maker!",null,null,null,false);
+		C1U_BA_1 = new Rooms(2, "Bathroom 1", "You have entered the bathroom. Someone is in here. Yo! Do you know how to knock first? That's rude. And I don't like rude people so...time to meet your maker!",P1,null,null,false);
 		C1U_STE_2 = new Rooms(3, "Bedroom Suite 2", "Nice little bedroom for the back of the train.  It has one bed to the right of you; there might be something in there. You also see a dresser to the left, there appears to be a piece of paper attached to it, will you answer the riddle?",null,null,null,false);
 		C1U_PASS_1 = new Rooms(4, "Passenger Seating", "Ah, they’re playing your favorite movie in the Passenger Seating area, Ocean's Eleven.  There are seats to your right and left. You could sit a finish the movie, but you'd be wasting precious time. You notice someone staring at you from the corner of your eye.  He stands between you and the door to the 2nd car.  There's also a bathroom you could hide in for awhile if that's your thing.",null,null,null,false);
 		C1U_BA_2 = new Rooms(5, "Bathroom 2", "I hope you have to use the bathroom because there's nothing else in here to do.  Pick a better place to pillage next time won't you.",null,null,null,false);

@@ -5,11 +5,13 @@ package Model;
 
 public class Puzzle
 {
-	private String puzzleName, puzzleID, solution, description, correctMSG, incorrectMSG, hint;
+	private String puzzleName, solution, description, correctMSG, incorrectMSG, hint;
+	private int puzzleID;
+	private Item item;
 	private boolean isSolved;
 	//private Item item;
-	public Puzzle(String puzzleName, String puzzleID, String solution, String description, String correctMSG,
-			String incorrectMSG, String hint, boolean isSolved/*, Item item*/)
+	public Puzzle(String puzzleName, int puzzleID, String solution, String description, String correctMSG,
+			String incorrectMSG, String hint, boolean isSolved, Item item)
 	{
 		this.puzzleName = puzzleName;
 		this.puzzleID = puzzleID;
@@ -19,7 +21,7 @@ public class Puzzle
 		this.incorrectMSG = incorrectMSG;
 		this.hint = hint;
 		this.isSolved = isSolved;
-		//this.item = item;
+		this.item = item;
 	}
 	public String getPuzzleName()
 	{
@@ -29,11 +31,11 @@ public class Puzzle
 	{
 		this.puzzleName = puzzleName;
 	}
-	public String getPuzzleID()
+	public int getPuzzleID()
 	{
 		return puzzleID;
 	}
-	public void setPuzzleID(String puzzleID)
+	public void setPuzzleID(int puzzleID)
 	{
 		this.puzzleID = puzzleID;
 	}
@@ -85,7 +87,7 @@ public class Puzzle
 	{
 		this.isSolved = isSolved;
 	}
-	/*
+	
 	public Item getItem()
 	{
 		return item;
@@ -94,7 +96,7 @@ public class Puzzle
 	{
 		this.item = item;
 	}
-	*/
+	
 	
 	
 	
