@@ -105,42 +105,22 @@ public class Rooms
 
 	public static void moveRooms()
 	{
-		ArrayList<String> roomNames = new ArrayList<String>();
-		roomNames.add("C1_U");
-		roomNames.add("C1U_STE_1");
-		roomNames.add("C1U_BA_1");
-		roomNames.add("C1U_STE_2");
-		roomNames.add("C1U_PASS_1");
-		roomNames.add("C1U_BA_2");
-		roomNames.add("C1_L");
-		roomNames.add("C1L_KT_1");
-		roomNames.add("C1L_DIN_1");
-		roomNames.add("C1L_BA_3");
-		roomNames.add("C2_U");
-		roomNames.add("C2U_BA_4");
-		roomNames.add("C2U_STE_3");
-		roomNames.add("C2U_STE_4");
-		roomNames.add("C2U_BA_5");
-		roomNames.add("C2_L");
-		roomNames.add("C2L_BA_6");
-		roomNames.add("C2L_STE_10");
-		roomNames.add("C2L_STE_11");
-		roomNames.add("C2L_SIT_12");
-		roomNames.add("C3_U");
-		roomNames.add("C3U_BAR");
-		roomNames.add("C3U_LG_1");
-		roomNames.add("C3U_LG_2");
-		roomNames.add("C3U_BA_7");
-		roomNames.add("C3_L");
-		roomNames.add("C3L_COAL_RM");
-		roomNames.add("C3L_RM");
-		roomNames.add("C3_STF_2");
-		roomNames.add("C3U_BA_8");
+		
 		//System.out.println(Game.currentRoom.getID());
 		System.out.println(Game.currentRoom.displayExits());
 		int move = Game.input.nextInt();
-
+	
 		System.out.println(Game.currentRoom.displayDescription(move));
+		
+		for(Rooms r : Game.getRooms())
+		{
+			if(r.getID() == move)
+			{
+				Game.setCurrentRoom(r);
+			}
+		}
+		
+		
 		//Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
 		//Game.currentRoom = roomNames.get(move);
 		//System.out.println(Game.currentRoom.getID());

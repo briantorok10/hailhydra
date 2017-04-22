@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -20,11 +21,20 @@ public class Game
 	private static Game game;
 	private Player player;
 	private int score;
-	private static Rooms room;
 	public static String begin;
 	public static Rooms currentRoom;
 	public static Scanner input = new Scanner(System.in);
+	public static ArrayList<Rooms> roomNames = new ArrayList<Rooms>();
 
+	public static ArrayList<Rooms> getRooms()
+	{
+		return roomNames;
+	}
+	
+	public static void setCurrentRoom(Rooms r)
+	{
+		currentRoom = r;
+	}
 	public void create(Player p) throws IOException{
 		{
 			//Scanner input = new Scanner(System.in);
@@ -109,10 +119,6 @@ public class Game
 		System.out.println("That means enter a single number... like 1 or 2 or maybe even 3!");
 		Menu.MainMenu();
 	}
-	public void setCurrentRoom(Rooms currentRoom)
-	{
-		Game.room = currentRoom;
-	}
 
 	public static void initializeGame() 
 	{
@@ -152,6 +158,37 @@ public class Game
 		C3_STF_2 = new Rooms(28, "Staff Lounge", "One of the train staff bragged about a very rare artifact she hide in this room since no one ever cleans up in here. It is worth millions! You have only a few minutes to look for it before your detected by the staff. You can stay and search for the artifact or exit through the door and continue up the train.",null,null,null);
 		C3U_BA_8 = new Rooms(29, "Bathroom 8", "People always hide the weirdest things in bathrooms.  I guess a train bathroom is no different.  What do we have here?  The rare Mother of Pearl bracelet.  However you need to so answer this question before you can get it out of its case. ",null,null,null);
 		 
+		//ArrayList<Rooms> roomNames = new ArrayList<Rooms>();
+		roomNames.add(C1_U);
+		roomNames.add(C1U_STE_1);
+		roomNames.add(C1U_BA_1);
+		roomNames.add(C1U_STE_2);
+		roomNames.add(C1U_PASS_1);
+		roomNames.add(C1U_BA_2);
+		roomNames.add(C1_L);
+		roomNames.add(C1L_KT_1);
+		roomNames.add(C1L_DIN_1);
+		roomNames.add(C1L_BA_3);
+		roomNames.add(C2_U);
+		roomNames.add(C2U_BA_4);
+		roomNames.add(C2U_STE_3);
+		roomNames.add(C2U_STE_4);
+		roomNames.add(C2U_BA_5);
+		roomNames.add(C2_L);
+		roomNames.add(C2L_BA_6);
+		roomNames.add(C2L_STE_10);
+		roomNames.add(C2L_STE_11);
+		roomNames.add(C2L_SIT_12);
+		roomNames.add(C3_U);
+		roomNames.add(C3U_BAR);
+		roomNames.add(C3U_LG_1);
+		roomNames.add(C3U_LG_2);
+		roomNames.add(C3U_BA_7);
+		roomNames.add(C3_L);
+		roomNames.add(C3L_COAL_RM);
+		roomNames.add(C3L_RM);
+		roomNames.add(C3_STF_2);
+		roomNames.add(C3U_BA_8);
 		//UPPER HALLWAY EXITS
 		C1_U.setExit(1, C1U_STE_1);
 		C1_U.setExit(2, C1U_BA_1);
