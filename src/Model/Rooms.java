@@ -10,6 +10,7 @@ import java.util.Set;
  */
 public class Rooms
 {
+	private static Game game;
 	int ID;
 	private String name, description;
 	private Puzzle puzzle;
@@ -137,9 +138,10 @@ public class Rooms
 		roomNames.add("C3U_BA_8");
 		//System.out.println(Game.currentRoom.getID());
 		System.out.println(Game.currentRoom.displayExits());
-		int move = Game.input.nextInt();	
+		int move = Game.input.nextInt();
+
 		System.out.println(Game.currentRoom.displayDescription(move));
-		Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
+		//Game.currentRoom = Game.currentRoom.getNewRoom(Game.currentRoom.exits.get(move));
 		//Game.currentRoom = roomNames.get(move);
 		//System.out.println(Game.currentRoom.getID());
 		Menu.MainMenu();
