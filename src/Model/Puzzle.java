@@ -79,7 +79,7 @@ public class Puzzle
 	{
 		this.hint = hint;
 	}
-	public boolean isSolved()
+	public boolean getIsSolved()
 	{
 		return isSolved;
 	}

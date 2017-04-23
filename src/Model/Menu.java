@@ -86,13 +86,15 @@ public class Menu
 		case 1:
 			System.out.println("\nWhat is your guess?");
 			String answer = Game.input.next();
-			if (answer.equalsIgnoreCase("Skull"))
+			if (answer.equalsIgnoreCase(Game.currentRoom.getPuzzle().getSolution()))
 			{
 				System.out.println("\n" + Game.currentRoom.getPuzzle().getCorrectMSG());
+				Game.currentRoom.getPuzzle().setSolved(true);
+				MainMenu();
 			}
 			else
 				System.out.println("\n" + Game.currentRoom.getPuzzle().getIncorrectMSG());
-			//PuzzleMenu();
+				PuzzleMenu();
 			break;
 		case 2:
 

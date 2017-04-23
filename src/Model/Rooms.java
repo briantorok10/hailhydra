@@ -141,12 +141,13 @@ public class Rooms
 			}
 		}
 		
-		if (Game.getCurrentRoom().hasMonsters())
+		if (Game.getCurrentRoom().hasMonsters() && Game.currentRoom.getMonsters().getIsDefeated() == false)
 		{
 			Menu.CombatMenu();
 		}
-		else if(Game.currentRoom.getPuzzle() != null)
+		else if(Game.currentRoom.getPuzzle() != null && Game.currentRoom.getPuzzle().getIsSolved() == false)
 		{
+			System.out.println(Game.currentRoom.getPuzzle().getDescription());
 			Menu.PuzzleMenu();
 		}
 		else

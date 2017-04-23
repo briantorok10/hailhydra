@@ -65,7 +65,7 @@ public class Player extends Character
 		if (playerChance >= m.getChance())
 		{
 			//Lose Condition
-			Player.setScore(p.getScore() - m.getScoreLoss());
+			Player.setScore(Player.getScore() - m.getScoreLoss());
 			System.out.println("Looks like you weren't so lucky this time 'round");
 			Menu.CombatMenu();
 		}
@@ -75,6 +75,7 @@ public class Player extends Character
 			m.remove();
 			Player.increaseScore(Game.currentRoom.getMonsters().getScoreLoss());
 			System.out.println(m.getWinStatement());
+			Game.currentRoom.getMonsters().setIsDefeated(true);
 			Menu.MainMenu();
 		}
 	}
@@ -99,7 +100,7 @@ public class Player extends Character
 		}
 		else
 		{
-			return "It donesn't look like you've got anything there. Are you even trying?";
+			return "It doesn't look like you've got anything there. Are you even trying?";
 		}
 	}
 	
