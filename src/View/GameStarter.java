@@ -1,7 +1,7 @@
 package View;
 
-import Model.Game;
-import Model.Start;
+import Controller.Game;
+import Controller.Start;
 
 /**
  * 
@@ -17,7 +17,6 @@ public class GameStarter
 		Game.play();
 	}
 		
-
 }
 
 

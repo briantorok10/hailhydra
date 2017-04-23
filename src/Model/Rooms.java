@@ -4,6 +4,9 @@ package Model;
 import java.util.HashMap;
 import java.util.Set;
 
+import Controller.Game;
+import Controller.Menu;
+
 /**
  * 
  * @author Jose Moreno
