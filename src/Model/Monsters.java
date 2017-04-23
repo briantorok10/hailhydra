@@ -1,3 +1,8 @@
+/**
+ * Author: Brian Torok
+ */
+
+
 package Model;
 
 

@@ -1,12 +1,13 @@
 package Model;
 import java.util.ArrayList;
+import Controller.*;
 
 import Controller.Game;
 import Controller.Menu;
 
 /**
  * 
- * @author Jose Moreno
+ * @author Brian Torok
  *
  */
 public class Player extends Character

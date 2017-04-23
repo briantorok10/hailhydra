@@ -1,4 +1,5 @@
 package Model;
+import Model.*;
 
 /**
  * 
