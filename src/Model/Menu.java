@@ -34,19 +34,19 @@ public class Menu
 			System.out.println("Your Score: " + Player.getScore());
 			System.out.println("This is what you're lugging around:");
 			//Still needs some work
-			/*
-			if (Game.player.getInventory().isEmpty())
+			
+			if (Player.inventory.isEmpty())
 			{
 				System.out.println("You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
 			}
 			else
 			{
-				for (Item i: Game.player.getInventory())
+				for (Item i: Player.inventory)
 				{
-					System.out.println(i.getName());
+					System.out.println(i.getName() + " - " + i.getDescription());
 				}
 			}
-			*/
+			
 			Menu.MainMenu();
 
 			break;
@@ -90,6 +90,7 @@ public class Menu
 			{
 				System.out.println("\n" + Game.currentRoom.getPuzzle().getCorrectMSG());
 				Game.currentRoom.getPuzzle().setSolved(true);
+				Player.setInventory(Game.currentRoom.getPuzzle().getItem());
 				MainMenu();
 			}
 			else
@@ -97,7 +98,8 @@ public class Menu
 				PuzzleMenu();
 			break;
 		case 2:
-
+			System.out.println(Game.currentRoom.getPuzzle().getDescription());
+			PuzzleMenu();
 			break;
 		case 3:
 			Game.printHelp();

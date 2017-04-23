@@ -11,7 +11,7 @@ public class Player extends Character
 	private static Rooms room;
 	private static String username;
 	private static int score;
-	static ArrayList<Item> inventory;
+	static ArrayList<Item> inventory = new ArrayList<Item>();
 
 	public Player()
 	{
@@ -42,6 +42,11 @@ public class Player extends Character
 	public ArrayList<Item> getInventory()
 	{
 		return inventory;
+	}
+	
+	public static void setInventory(Item item)
+	{
+		inventory.add(item);
 	}
 	
 	public static void increaseScore(int x)

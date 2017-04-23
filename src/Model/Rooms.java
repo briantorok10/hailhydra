@@ -137,7 +137,7 @@ public class Rooms
 		{
 			if(r.getID() == move)
 			{
-				Game.setCurrentRoom(r);
+				Game.setCurrentRoom(r);		
 			}
 		}
 		
