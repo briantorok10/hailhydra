@@ -67,16 +67,8 @@ public class Rooms
 
 	public String getDescription()
 	{
-
-		//		if(items.size() > 0)
-		//		{
-		//			description += "\nThe following items are in this room: \n";
-		//			for(Item item : items)
-		//			{
-		//				description += "\t" + item.getName() + "\n";
-		//			}
-		//		}
 		return description;
+		
 	}
 
 	public String displayExits()

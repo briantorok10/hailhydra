@@ -35,7 +35,7 @@ public class Menu
 			System.out.println("Your Score: " + Player.getScore());
 			System.out.println("This is what you're lugging around:");
 			//Still needs some work
-			
+
 			if (Player.inventory.isEmpty())
 			{
 				System.out.println("You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
@@ -47,7 +47,7 @@ public class Menu
 					System.out.println(i.getName() + " - " + i.getDescription());
 				}
 			}
-			
+
 			Menu.MainMenu();
 
 			break;
@@ -96,7 +96,7 @@ public class Menu
 			}
 			else
 				System.out.println("\n" + Game.currentRoom.getPuzzle().getIncorrectMSG());
-				PuzzleMenu();
+			PuzzleMenu();
 			break;
 		case 2:
 			System.out.println(Game.currentRoom.getPuzzle().getDescription());
@@ -125,7 +125,7 @@ public class Menu
 
 
 		String options = input.next();
-		
+
 		if (options.equals("1"))
 		{
 			Player.attack(Game.player, Game.currentRoom.getMonsters());
