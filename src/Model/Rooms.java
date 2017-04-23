@@ -153,7 +153,5 @@ public class Rooms
 			Menu.MainMenu();
 	}
 
-	public Monsters getMonster() {
-		return monster;
-	}
+
 }

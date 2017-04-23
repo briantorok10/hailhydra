@@ -114,7 +114,7 @@ public class Menu
 
 		System.out.println(Game.currentRoom.getMonsters().getEnterStatement());
 		System.out.println("What would you like to do?");
-		System.out.println("1. Attack " + Game.currentRoom.getMonster().getName());
+		System.out.println("1. Attack " + Game.currentRoom.getMonsters().getName());
 		System.out.println("2. Run");
 		System.out.println("3. Use Item");
 
@@ -123,7 +123,7 @@ public class Menu
 		
 		if (options.equals("1"))
 		{
-			Player.attack(Game.player, Game.currentRoom.getMonster());
+			Player.attack(Game.player, Game.currentRoom.getMonsters());
 		}else if(options.equals("2"))
 		{
 			Rooms.moveRooms();
