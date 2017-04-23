@@ -1,7 +1,9 @@
-package Model;
+package Controller;
 
 import java.io.IOException;
 import java.util.Scanner;
+
+import Model.Player;
 /**
  * 
  * @author Jose Moreno

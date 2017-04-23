@@ -1,6 +1,8 @@
-package Model;
+package Controller;
 
 import java.util.Scanner;
+
+import Model.*;
 
 /**
  * 

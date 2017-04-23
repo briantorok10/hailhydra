@@ -1,5 +1,6 @@
 package Model;
 import java.util.ArrayList;
+import Controller.*;
 
 /**
  * 
@@ -11,7 +12,7 @@ public class Player extends Character
 	private static Rooms room;
 	private static String username;
 	private static int score;
-	static ArrayList<Item> inventory = new ArrayList<Item>();
+	public static ArrayList<Item> inventory = new ArrayList<Item>();
 
 	public Player()
 	{
