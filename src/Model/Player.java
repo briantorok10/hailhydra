@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author Jose Moreno
+ * @author Brian Torok
  *
  */
 public class Player extends Character

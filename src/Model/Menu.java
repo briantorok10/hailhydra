@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * 
- * @author Jose Moreno
+ * @author Jose Moreno & Brian Torok
  *
  */
 
@@ -106,7 +106,7 @@ public class Menu
 			Game.printHelp();
 			break;
 		case 4:
-
+			
 			break;
 		default:
 			System.out.println();
