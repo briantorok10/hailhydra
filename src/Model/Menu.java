@@ -31,7 +31,7 @@ public class Menu
 			break;
 		case 2:
 
-			System.out.println("Your Score: " + Game.player.getScore());
+			System.out.println("Your Score: " + Player.getScore());
 			System.out.println("This is what you're lugging around:");
 			//Still needs some work
 			/*

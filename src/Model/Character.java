@@ -1,15 +1,12 @@
 package Model;
 
-import java.io.Serializable;
-import java.util.Random;
-
 /**
  * 
  * @author Jose Moreno
  *
  */
 
-public abstract class Character implements Serializable
+public abstract class Character
 {
 	protected int characterID;
 	protected String name;

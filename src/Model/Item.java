@@ -1,22 +1,23 @@
 package Model;
 
-import java.io.Serializable;
 
 /**
  * 
  * @author Jose Moreno
  *
  */
-public abstract class Item implements Serializable //needs to be abstract for effect() method
+public class Item //needs to be abstract for effect() method
 {
-	private String name;
-	private String description;
-	private int itemID;
-	public Item(String name, String description, int itemID)
+	private String name,description,use;
+	private int itemID, value;
+	
+	public Item(String name, int itemID, String description, String use, int value)
 	{
 		this.name = name;
 		this.description = description;
 		this.itemID = itemID;
+		this.use = use;
+		this.value = value;
 	}
 	public String getName()
 	{
@@ -31,6 +32,16 @@ public abstract class Item implements Serializable //needs to be abstract for ef
 		return itemID;
 	}
 	
-	public abstract void effect();//should be used by each item type (add points, increase luck, etc.)
+	public String getUse()
+	{
+		return use;
+	}
+	public long getValue()
+	{
+		return value;
+	}
+	public void effect()
+	{
+	}//should be used by each item type (add points, increase luck, etc.)
 		
 }

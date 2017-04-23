@@ -1,6 +1,6 @@
 package Model;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -10,7 +10,6 @@ import java.util.Set;
  */
 public class Rooms
 {
-	private static Game game;
 	int ID;
 	private String name, description;
 	private Puzzle puzzle;
@@ -29,7 +28,6 @@ public class Rooms
 		this.item = item;
 		this.entered = entered;
 		exits = new HashMap<Integer, Rooms>();
-		//items = new ArrayList<Item>();
 	}
 
 	public int getID()
@@ -52,9 +50,6 @@ public class Rooms
 		return monster;
 	}
 	
-	
-	
-
 	public Puzzle getPuzzle()
 	{
 		return puzzle;
@@ -124,15 +119,11 @@ public class Rooms
 			return true;
 	}
 
-	//	public void addItem(Item i)
-	//	{
-	//		items.add(i);
-	//	}
-	//	
-	//	public String getItem()
-	//	{
-	//		return items.toString();
-	//	}
+		
+	//public String getItem()
+	//{
+		//return items.toString();
+	//}
 
 
 	public static void moveRooms()
@@ -149,17 +140,14 @@ public class Rooms
 				Game.setCurrentRoom(r);
 			}
 		}
-
-		if(Game.currentRoom.getPuzzle() != null)
-		{
-			Menu.PuzzleMenu();
-		}
-		else
-		Menu.MainMenu();
 		
 		if (Game.getCurrentRoom().hasMonsters())
 		{
 			Menu.CombatMenu();
+		}
+		else if(Game.currentRoom.getPuzzle() != null)
+		{
+			Menu.PuzzleMenu();
 		}
 		else
 			Menu.MainMenu();
