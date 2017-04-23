@@ -89,7 +89,6 @@ public class Game
 			}
 		}
 	}
-
 	public void load(Player p)
 
 	{
