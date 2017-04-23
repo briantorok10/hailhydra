@@ -14,6 +14,7 @@ public class Menu
 
 	public static void MainMenu()
 	{
+		System.out.println();
 		System.out.println("\n-----Main Menu-----");
 		System.out.println("What would you like to do?");
 		System.out.println("1. Move Rooms");

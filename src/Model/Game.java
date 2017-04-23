@@ -18,9 +18,7 @@ import java.util.Scanner;
  */
 public class Game
 {
-	private static Game game;
 	static Player player;
-	private int score;
 	public static String begin;
 	public static Rooms currentRoom;
 	public static Scanner input = new Scanner(System.in);
@@ -116,7 +114,8 @@ public class Game
 
 	public static void printHelp()
 	{
-		System.out.println("---------HELP MENU---------");
+		System.out.println();
+		System.out.println("---------Help Menu---------");
 		System.out.println("Select one of the options from the main menu!");
 		System.out.println("Simple number input is required to progress!");
 		System.out.println("That means enter a single number... like 1 or 2 or maybe even 3!");
@@ -164,7 +163,7 @@ public class Game
 		C2_L, C2L_BA_6, C2L_STE_10, C2L_STE_11, C2L_SIT_12, C3_U, C3U_BAR, C3U_LG_1,
 		C3U_LG_2, C3U_BA_7, C3_L, C3L_COAL_RM, C3L_RM, C3_STF_2, C3U_BA_8;
 
-		C1_U = new Rooms(0, "Upper Hallway 1", "You are in the upper hallway of the first car. Plenty to get pillage through up here.  Let's see, to the left is the Master Bedroom, Bathroom, and a secondary Bedroom Suite. To the right is the Passenger Seating to watch a movie, and a guest bathroom. Where do you want to go first?",null,null,null,false);
+		C1_U = new Rooms(0, "Upper Hallway 1", "You are in the upper hallway of the first car. \nPlenty to get pillage through up here. \nLet's see, to the left is the Master Bedroom, Bathroom, and a secondary Bedroom Suite. \nTo the right is the Passenger Seating to watch a movie, and a guest bathroom. \nWhere do you want to go first?",null,null,null,false);
 		C1U_STE_1 = new Rooms(1, "Master Bedroom Suite", "Sweet!  The Master Bedroom Suite, there are two large beds to your left and your right. There appears to be some jewelry on the left bed, and a sparkly item underneath the pillow on the right bed. The room appears deserted, but there seems to be some kind of noise coming from around the room.",null,null,A06,false);
 		C1U_BA_1 = new Rooms(2, "Bathroom 1", "You have entered the bathroom. Someone is in here. Yo! Do you know how to knock first? That's rude. And I don't like rude people so...time to meet your maker!",null,e00,A01,false);
 		C1U_STE_2 = new Rooms(3, "Bedroom Suite 2", "Nice little bedroom for the back of the train.  It has one bed to the right of you; there might be something in there. You also see a dresser to the left, there appears to be a piece of paper attached to it, will you answer the riddle?",P1,null,A01,false);
@@ -300,16 +299,8 @@ public class Game
 		C3L_RM.setExit(25, C3_L);
 		C3_STF_2.setExit(25, C3_L);
 		C3U_BA_8.setExit(25, C3_L);
-		
-		
-		
-		
-		
-		
-		
-		
 
-		//begin = "C1_U";
+		//STARTING POINT OF GAME
 		currentRoom = C1_L;
 		System.out.println(Game.currentRoom.getDescription());
 		Menu.MainMenu();

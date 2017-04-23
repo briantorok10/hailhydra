@@ -130,7 +130,7 @@ public class Rooms
 	{
 		System.out.println(Game.currentRoom.displayExits());
 		int move = Game.input.nextInt();
-	
+		System.out.println();
 		System.out.println(Game.currentRoom.displayDescription(move));
 		
 		for(Rooms r : Game.getRooms())

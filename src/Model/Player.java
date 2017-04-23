@@ -81,6 +81,7 @@ public class Player extends Character
 			Player.increaseScore(Game.currentRoom.getMonsters().getScoreLoss());
 			System.out.println(m.getWinStatement());
 			Game.currentRoom.getMonsters().setIsDefeated(true);
+			Player.setInventory(Game.currentRoom.getMonsters().getDropItems());
 			Menu.MainMenu();
 		}
 	}
