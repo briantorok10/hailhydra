@@ -96,9 +96,4 @@ public class Puzzle
 	{
 		this.item = item;
 	}
-	
-	
-	
-	
-		
 }

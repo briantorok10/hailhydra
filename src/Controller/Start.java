@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Model.Player;
@@ -58,8 +59,14 @@ public class Start
 			}
 		}
 		catch (IOException e) {
-			e.printStackTrace();
-		}input.close();
+			System.out.println("Please choose one of the options by typing their corresponding digit");
+			startMessage();
+		}
+		catch (InputMismatchException e) {
+			System.out.println("Please choose one of the options by typing their corresponding digit");
+			startMessage();
+		}
+		input.close();
 		
 	}
 		
