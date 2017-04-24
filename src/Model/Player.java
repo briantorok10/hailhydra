@@ -1,18 +1,19 @@
 package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
+import Controller.*;
+
 
 import Controller.Game;
 import Controller.Menu;
 
 /**
  * 
- * @author Jose Moreno
+ * @author Brian Torok
  *
  */
 public class Player extends Character implements Serializable
 {
-	private static Rooms room;
 	private static String username;
 	private static int score;
 	public static ArrayList<Item> inventory = new ArrayList<Item>();
