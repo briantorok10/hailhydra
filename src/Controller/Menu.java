@@ -2,13 +2,7 @@ package Controller;
 
 import java.util.Scanner;
 
-<<<<<<< HEAD
-import Model.Item;
-import Model.Player;
-import Model.Rooms;
-=======
 import Model.*;
->>>>>>> 2be57806eefab62a213cd991c2828b325d0c6d99
 
 /**
  * 
@@ -116,12 +110,8 @@ public class Menu
 			PuzzleMenu();
 			break;
 		case 4:
-<<<<<<< HEAD
 			System.out.println(Game.currentRoom.getDescription());
 			MainMenu();
-=======
-			
->>>>>>> 2be57806eefab62a213cd991c2828b325d0c6d99
 			break;
 		default:
 			System.out.println();

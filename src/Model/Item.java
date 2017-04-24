@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.Menu;
 
 /**
  * 
@@ -45,18 +46,40 @@ public class Item //needs to be abstract for effect() method
 	}//should be used by each item type (add points, increase luck, etc.)
 	public static void cashOut()
 	{
-		if(Player.inventory.size() > 1)
+		int total = 0;
+		if(!Player.inventory.isEmpty())
 		{
 			for(int i = 0; i < Player.inventory.size(); i++)
 			{
 				if(Player.inventory.get(i).name.equals("Copper Coin") || Player.inventory.get(i).name.equals("Silver Coin") || Player.inventory.get(i).name.equals("Gold Coin"))
 				{
-					Player.inventory.remove(i);
 					Player.increaseScore(Player.inventory.get(i).getValue());
+					total += Player.inventory.get(i).getValue();
+					Player.inventory.remove(i);			
 				}
 
 			}
+			System.out.println();
+			System.out.println("You cashed all your coins out for a total of: " + total + "G");
+			System.out.println();
+			System.out.println("Your Score: " + Player.getScore() + "G");
+			System.out.println("This is what you're lugging around:");
+			//Still needs some work
+
+			if (Player.inventory.isEmpty())
+			{
+				System.out.println("You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
+			}
+			else
+			{
+				for (Item i: Player.inventory)
+				{
+					System.out.println(i.getName() + " - " + i.getUse());
+				}
+			}
+			Menu.InventoryMenu();
 		}
-		else System.out.println("We require at least 20 gold worth of items before cashing out!");
+		else System.out.println("You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
+		Menu.InventoryMenu();
 	}
 }

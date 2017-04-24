@@ -2,8 +2,6 @@ package Model;
 import java.util.ArrayList;
 import Controller.*;
 
-import Controller.Game;
-import Controller.Menu;
 
 /**
  * 

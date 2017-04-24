@@ -131,9 +131,9 @@ public class Game
 
 	public static void initializeGame() 
 	{
-		
+
 		Item A01,A02,A03,A04,A05,A06,A07,A08,A09,A10,A11;
-		
+
 		A01 = new Item("Copper Coin",0,"A coin made of copper that holds a small value.","Add 10 gold to your bag",10);
 		A02 = new Item("Silver Coin",1,"A coin made of silver that holds a medium value.","Add 50 gold to your bag",50);
 		A03 = new Item("Gold Coin",2,"A coin made of pure gold that holds a high value.","Add 100 gold to your bag",100);
@@ -145,9 +145,9 @@ public class Game
 		A09 = new Item("Queen Elizabeth's Diamond Broach",8,"Queen Elizabeth of England’s priceless diamond broach. Worth and extremely large sum of money to the right buyer. Useless otherwise.","Sell for an extremely large amount of money.",1000000);
 		A10 = new Item("Miniscule Kitchen Knife",9,"An extremely small knife maybe used for cutting carrots.Could be a weapon against small mice.","Add 5% chance to your favor in battle",50);
 		A11 = new Item("Bag O'Coins", 10, "A bag full of wonders... and money", "Special Item which contains 10 Gold Coins",1000);
-		
+
 		Puzzle P1,P2,P3,P4,P5,P6,P7,P8;
-		
+
 		P1 = new Puzzle("Coin",0,"Coin","What has a head and a tail, but no body?","Congratulations! You have received a Copper Coin for solving the puzzle!","This riddle ain't worth a cent of my time!","Small, round, and jingles in your pocket.",false, A01,7);
 		P2 = new Puzzle("Food",1,"Egg","What has to be broken before you can use it?","Congratulations! You have received a miniscule kitchen knife for solving the puzzle!","Ah well I might come back later, it's not like it's too important.","Golden Goose",false,A10,14);
 		P3 = new Puzzle("Dessert",2,"Doughnut","What has no beginning, end, or middle?","Congratulations! You passed the test and you may proceed.","There might be a delicacy behind this riddle, but it may just not be the time or place for such things.","Policeman's favorite food.",false,A10,20);
@@ -157,7 +157,7 @@ public class Game
 		P7 = new Puzzle("Breath",6,"Breath","I'm light as a feather, yet the strongest man can't hold me for more than 5 minutes. What am I?","Congratulations! You got a Gold Coin for your troubles.","You should really have entertained the Romanian beauty, she was really nice. Oh, well, that just cost you 5 points.","Water is not good for the lungs.",false,A03,65);
 		P8 = new Puzzle("Telephone",7,"Telephone","You answer me, although I never ask you questions. What am I?","Congrats, you just acquired 10 gold coins to add to your collection","Too much dead air, I'll move on for now.","Ring ring, who is it?",false,A11,70);
 		//I said the answer is skull!
-		
+
 		Monsters e00 = new Monsters(0, "Train Lackey", A01, 5, .95, "A slender Train Lackey holds a wrench in front of you what shall you do?", "You got the copper coin from the pocket of the knocked out lackey! RECIEVED: Copper Coin", "The Lackey can live another day.");
 		Monsters e01 = new Monsters(1, "Train Engineer", A02, 10, .85, "A grease monkey appears in front of you, it must be a Train Engineer.", "You got the silver coin that the engineer dropped!", "Eh, I don't want to get any oil on my clothes today, I just stole these.");
 		Monsters e02 = new Monsters(2, "Mechanic", A07, 15, .80, "A mildly clean man in overalls stands before me, he looks a bit smart, I'll have to take him head on.", "The engineer gave you his snakeskin oil, and ran away, strange lot they are...", "Those glasses are throwing me off a bit, I'll leave for now.");
@@ -166,7 +166,7 @@ public class Game
 		Monsters e05 = new Monsters(5, "Bouncer", A05, 15, .75, "Short, buff dude, this bouncer won't get the best of me", "The bouncer dropped a revolver, strange he didn't use it, must be something to it.", "This ankle-biter ain't worth it for now.");
 		Monsters e06 = new Monsters(6, "Bodyguard", A07, 20, .70, "I want this kind of bodyguard on my side when I make it big.", "What's this guy doing with a bottle of snakeskin stuffs", "I'll take this guy on later.");
 		Monsters e07 = new Monsters(7, "CEO of Sunnydale, Inc.", A09, 100, .50, "", "My oh my, quite a fancy item you have you Mr.CEO, that'll fetch a nice price.", "");
-			
+
 		Rooms C1_U, C1U_STE_1, C1U_BA_1, C1U_STE_2, C1U_PASS_1, C1U_BA_2, C1_L,
 		C1L_KT_1, C1L_DIN_1, C1L_BA_3, C2_U, C2U_BA_4, C2U_STE_3, C2U_STE_4, C2U_BA_5,
 		C2_L, C2L_BA_6, C2L_STE_10, C2L_STE_11, C2L_SIT_12, C3_U, C3U_BAR, C3U_LG_1,
@@ -202,7 +202,7 @@ public class Game
 		C3L_RM = new Rooms(27, "Engine Room", "JACKPOT!!!! Finally, you have reached the mother load \nand you are almost home free. Only thing stopping you is one pissed of engine Mechanic. \nHis whole purpose in life is to guard the door that’s guarding the loot. \nYou didn't come all this way for nothing did you? \nWell, did you?",null,e02,null,false);
 		C3_STF_2 = new Rooms(28, "Staff Lounge", "One of the train staff bragged about a very rare artifact \nshe hid in this room since no one ever cleans up in here. It is worth millions! You have only a few minutes \nto look for it before you are detected by the staff. \nYou can stay and search for the artifact or \nexit through the door and continue up the train.",P3,null,null,false);
 		C3U_BA_8 = new Rooms(29, "Bathroom 8", "People always hide the weirdest things in bathrooms. \nI guess a train bathroom is no different. \nWhat do we have here? The rare Mother of Pearl bracelet. \nHowever you need to so answer this question before you can get it out of its case. ",P6,null,null,false);
-		 
+
 		//ArrayList<Rooms> roomNames = new ArrayList<Rooms>();
 		roomNames.add(C1_U);
 		roomNames.add(C1U_STE_1);
@@ -234,7 +234,7 @@ public class Game
 		roomNames.add(C3L_RM);
 		roomNames.add(C3_STF_2);
 		roomNames.add(C3U_BA_8);
-		
+
 		//UPPER LEVEL CAR 1 EXITS
 		C1_U.setExit(1, C1U_STE_1);
 		C1_U.setExit(2, C1U_BA_1);
@@ -248,7 +248,7 @@ public class Game
 		C1U_PASS_1.setExit(5, C1U_BA_2);
 		C1U_PASS_1.setExit(10, C2_U);
 		C1U_BA_2.setExit(0, C1_U);
-		
+
 		//LOWER LEVEL CAR 1 EXITS
 		C1_L.setExit(0, C1_U);
 		C1_L.setExit(7, C1L_KT_1);
@@ -259,7 +259,7 @@ public class Game
 		C1L_DIN_1.setExit(9, C1L_BA_3);
 		C1L_DIN_1.setExit(15, C2_L);
 		C1L_BA_3.setExit(8, C1L_DIN_1);
-		
+
 		//UPPER LEVEL CAR 2 EXITS
 		C2_U.setExit(0, C1_U);
 		C2_U.setExit(11, C2U_BA_4);
@@ -272,7 +272,7 @@ public class Game
 		C2U_STE_3.setExit(10, C2_U);
 		C2U_STE_4.setExit(10, C2_U);
 		C2U_BA_5.setExit(10, C2_U);
-		
+
 		//LOWER LEVEL CAR 2 EXITS
 		C2_L.setExit(8, C1L_DIN_1);
 		C2_L.setExit(16, C2L_BA_6);
@@ -285,7 +285,7 @@ public class Game
 		C2L_STE_10.setExit(15, C2_L);
 		C2L_STE_11.setExit(15, C2_L);
 		C2L_SIT_12.setExit(15, C2_L);
-		
+
 		//UPPER LEVEL CAR 3 EXITS
 		C3_U.setExit(10, C2_U);
 		C3_U.setExit(21, C3U_BAR);
@@ -297,7 +297,7 @@ public class Game
 		C3U_LG_1.setExit(20, C3_U);
 		C3U_LG_2.setExit(20, C3_U);
 		C3U_BA_7.setExit(20, C3_U);
-		
+
 		//LOWER LEVEL CAR 3 EXITS
 		C3_L.setExit(15, C2_L);
 		C3_L.setExit(26, C3L_COAL_RM);
