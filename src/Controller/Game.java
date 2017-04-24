@@ -1,14 +1,26 @@
-package Model;
+package Controller;
 
+import Model.*;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Model.Item;
+import Model.Monsters;
+import Model.Player;
+import Model.Puzzle;
+import Model.Rooms;
+import Model.Sleep;
 
 
 /**
@@ -41,16 +53,18 @@ public class Game
 			//Scanner input = new Scanner(System.in);
 			System.out.println("Please enter username: ");
 			String user = input.next();
+			p = new Player(0, "");
+			Game.player = p;
 			Player.setUsername(user);
 			String username = p.getUsername();		
-			File file = new File(username + ".txt");
+			File file = new File(username + ".dat");
 			if(file.exists())
 			{
 				System.out.println("This name already exists, please use a different name!");
 			} else {
 				System.out.println("Profile being created, please wait....");
 				PrintWriter writer = new PrintWriter(new FileWriter(file));
-				writer.println(username);
+				//writer.println(username);
 				writer.close();
 				Sleep.Delay(3000);
 				System.out.println();
@@ -62,11 +76,28 @@ public class Game
 
 	}
 
-	public void save(Player p)
-	{
+	public static void save()
+	{	
+		Player p = Game.player;
+		System.out.println("line 78");
 		String username = p.getUsername();
-		File file = new File(username + ".txt");
-		if(file.exists())
+	//	File file = new File(username + ".trainraid");
+		System.out.println("line 81");
+		Game.player.setCurrentRoom(currentRoom);
+		System.out.println("line 82");
+		try{
+		FileOutputStream fos = new FileOutputStream(username + ".dat");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		System.out.println("line 86");
+		oos.writeObject(Game.player);
+		System.out.println("line 88");
+		oos.flush();
+		oos.close();
+		System.out.println("Save attempt - success is unknown");
+		} catch (Exception ohno) {
+			ohno.printStackTrace(); System.out.println("ohno");
+		}
+	/**	if(file.exists())
 		{
 			try{
 				PrintWriter writer = new PrintWriter(new FileWriter(file));
@@ -79,18 +110,25 @@ public class Game
 			{
 				System.out.println("Other Error " + e.getLocalizedMessage());
 			}
-		}
+		} */
+		
 	}
 
 	public void load(Player p)
-
-	{
-
+	{	
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter the username of the file you wish to load.");
 		String username = input.next();
-		File file = new File(username + ".txt");
-		if(file.exists())
+		try{
+		FileInputStream fis = new FileInputStream(username + ".dat");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		player = (Player) ois.readObject();
+		ois.close();
+		input.close();
+		} catch (Exception fnfe){ System.out.println("File not found! Please reload game and try again.");
+			Start.startMessage();	
+		}
+	/**	if(file.exists())
 		{
 			System.out.println("File found! Loading Game.....");
 			try
@@ -107,8 +145,9 @@ public class Game
 			{
 				e.printStackTrace();
 			}
-		}
-		input.close();
+		} */
+		Menu.MainMenu();
+		
 
 	}
 

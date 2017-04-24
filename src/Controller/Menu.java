@@ -1,6 +1,11 @@
-package Model;
+package Controller;
 
 import java.util.Scanner;
+
+import Controller.Game;
+import Model.Item;
+import Model.Player;
+import Model.Rooms;
 
 /**
  * 
@@ -56,9 +61,9 @@ public class Menu
 			break;
 		case 4:
 			System.out.println("\nDo you want to save the game? Y / N");			
-			if (Game.input.next() == "Y")
+			if (Game.input.next().equalsIgnoreCase("Y"))
 			{
-
+				Game.save();
 			}
 			else
 				System.exit(0);
