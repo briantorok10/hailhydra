@@ -3,13 +3,13 @@ package Model;
 import Controller.*;
 import java.util.HashMap;
 import java.util.Set;
-
 import Controller.Game;
 import Controller.Menu;
 
 /**
  * 
  * @author Jose Moreno
+ * @author Jerry Chambers
  */
 public class Rooms
 {
@@ -165,7 +165,7 @@ public class Rooms
 			}
 			else if(r.getID() == move && r.getLocked() == true)
 			{
-				if(Game.player.getScore() >= r.getScoreNeeded())
+				if(Player.getScore() >= r.getScoreNeeded())
 				{
 						System.out.println("Congrats! You just unlocked this room with your amazing lockpicking skills!");
 						Game.setCurrentRoom(r);

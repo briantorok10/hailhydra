@@ -12,7 +12,8 @@ import Model.Player;
  */
 public class Start
 {	
-	public void startMessage()
+	
+	public static void startMessage()
 	{
 		System.out.println();
 		System.out.println("\t XXXXX  XXX    XX   XXX  X  X ");
@@ -31,7 +32,7 @@ public class Start
 		
 		Scanner input = new Scanner(System.in);
 		Game game = new Game();
-		Player p = new Player(0, null);
+		Player p = new Player(0, "");
 		System.out.println("*++++++++++++++++++++++++++++++++++++++++++++*");
 		System.out.println();
 		System.out.println("Please make a selection:");

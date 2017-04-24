@@ -1,5 +1,6 @@
 package Model;
-import Model.*;
+
+import java.io.Serializable;
 
 /**
  * 
@@ -7,7 +8,7 @@ import Model.*;
  *
  */
 
-public abstract class Character
+public abstract class Character implements Serializable
 {
 	protected int characterID;
 	protected String name;

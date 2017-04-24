@@ -1,6 +1,8 @@
 package Model;
+import java.io.Serializable;
 import java.util.ArrayList;
 import Controller.*;
+
 
 import Controller.Game;
 import Controller.Menu;
@@ -10,7 +12,7 @@ import Controller.Menu;
  * @author Brian Torok
  *
  */
-public class Player extends Character
+public class Player extends Character implements Serializable
 {
 	private static String username;
 	private static int score;
