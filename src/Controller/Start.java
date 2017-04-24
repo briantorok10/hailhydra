@@ -5,14 +5,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Model.Player;
+
 /**
  * 
  * @author Jose Moreno
  *
  */
 public class Start
-{	
-	
+{
+
 	public static void startMessage()
 	{
 		System.out.println();
@@ -29,7 +30,7 @@ public class Start
 		System.out.println("\t     XXX   XXXX   X   X  X   ");
 		System.out.println("\t     X  X  X  X   X   X  X   ");
 		System.out.println("\t     X  X  X  X  XXX  XXX    ");
-		
+
 		Scanner input = new Scanner(System.in);
 		Game game = new Game();
 		Player p = new Player(0, "");
@@ -40,9 +41,9 @@ public class Start
 		System.out.println("< 2 > Load Existing Game");
 		System.out.println("< 3 > Exit Game");
 		int options = input.nextInt();
-		try{
-			switch(options)	
-			{
+		try
+		{
+			switch (options) {
 			case 1:
 				game.create(p);
 				Game.initializeGame();
@@ -58,19 +59,17 @@ public class Start
 				startMessage();
 				break;
 			}
-		}
-		catch (IOException e) {
+		} catch (IOException e)
+		{
 			System.out.println("Please choose one of the options by typing their corresponding digit");
 			Menu.MainMenu();
-		}
-		catch (InputMismatchException e) {
+		} catch (InputMismatchException e)
+		{
 			System.out.println("Please choose one of the options by typing their corresponding digit");
 			Menu.MainMenu();
 		}
 		input.close();
-		
+
 	}
-		
-		
-	
+
 }

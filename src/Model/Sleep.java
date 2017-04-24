@@ -12,7 +12,7 @@ public class Sleep
 		try
 		{
 			Thread.sleep(time);
-		}catch(Exception e)
+		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}

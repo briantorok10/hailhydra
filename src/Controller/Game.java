@@ -190,7 +190,10 @@ public class Game
 		P8 = new Puzzle("Telephone",7,"Telephone","You answer me, although I never ask you questions. What am I?","Congrats, you just acquired 10 gold coins to add to your collection","Too much dead air, I'll move on for now.","Ring ring, who is it?",false,A11,70);
 		//I said the answer is skull!
 
-		Monsters e00 = new Monsters(0, "Train Lackey", A01, 5, .95, "A slender Train Lackey holds a wrench in front of you what shall you do?", "You got the copper coin from the pocket of the knocked out lackey! RECIEVED: Copper Coin", "The Lackey can live another day.");
+		Monsters e00 = new Monsters(0, "Train Lackey", A01, 5, .95,
+				"A slender Train Lackey holds a wrench in front of you what shall you do?",
+				"You got the copper coin from the pocket of the knocked out lackey! RECIEVED: Copper Coin",
+				"The Lackey can live another day.");
 		Monsters e01 = new Monsters(1, "Train Engineer", A02, 10, .85, "A grease monkey appears in front of you, it must be a Train Engineer.", "You got the silver coin that the engineer dropped!", "Eh, I don't want to get any oil on my clothes today, I just stole these.");
 		Monsters e02 = new Monsters(2, "Mechanic", A07, 15, .80, "A mildly clean man in overalls stands before me, he looks a bit smart, I'll have to take him head on.", "The engineer gave you his snakeskin oil, and ran away, strange lot they are...", "Those glasses are throwing me off a bit, I'll leave for now.");
 		Monsters e03 = new Monsters(3, "Shorty Pants", A04, 50, .65, "", "You got the short pants?!", "You'll get 'em next time.");

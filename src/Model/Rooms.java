@@ -35,8 +35,8 @@ public class Rooms
 		this.locked = false;
 		exits = new HashMap<Integer, Rooms>();
 	}
-	
-	public Rooms(int ID, String name, String description, Puzzle puzzle, Monsters monster, Item item, boolean entered, 
+
+	public Rooms(int ID, String name, String description, Puzzle puzzle, Monsters monster, Item item, boolean entered,
 			boolean locked, int scoreNeeded)
 	{
 		this.ID = ID;
@@ -66,11 +66,12 @@ public class Rooms
 		exits.put(direction, connecting);
 
 	}
+
 	public Monsters getMonsters()
 	{
 		return monster;
 	}
-	
+
 	public Puzzle getPuzzle()
 	{
 		return puzzle;
@@ -89,16 +90,19 @@ public class Rooms
 	public String getDescription()
 	{
 		return description;
-		
+
 	}
+
 	public void setLocked(boolean b)
 	{
 		this.locked = b;
 	}
+
 	public boolean getLocked()
 	{
 		return locked;
 	}
+
 	public int getScoreNeeded()
 	{
 		return scoreNeeded;
@@ -119,10 +123,12 @@ public class Rooms
 	{
 		return exits.get(direction).getID();
 	}
+
 	public String displayName(int direction)
 	{
 		return exits.get(direction).getName();
 	}
+
 	public String displayDescription(int direction)
 	{
 		return exits.get(direction).getDescription();
@@ -132,65 +138,58 @@ public class Rooms
 	{
 		return exits.get(rooms);
 	}
-	
+
 	public boolean hasMonsters()
 	{
-		if(monster == null)
+		if (monster == null)
 		{
 			return false;
-		}
-		else
+		} else
 			return true;
 	}
 
-		
-	//public String getItem()
-	//{
-		//return items.toString();
-	//}
-
+	// public String getItem()
+	// {
+	// return items.toString();
+	// }
 
 	public static void moveRooms()
 	{
 		System.out.println(Game.currentRoom.displayExits());
 		int move = Game.input.nextInt();
 		System.out.println();
-		
-		for(Rooms r : Game.getRooms())
+
+		for (Rooms r : Game.getRooms())
 		{
-			if(r.getID() == move && r.getLocked() == false)
+			if (r.getID() == move && r.getLocked() == false)
 			{
 				Game.setCurrentRoom(r);
 				System.out.println(Game.currentRoom.getDescription());
-			}
-			else if(r.getID() == move && r.getLocked() == true)
+			} else if (r.getID() == move && r.getLocked() == true)
 			{
-				if(Player.getScore() >= r.getScoreNeeded())
+				if (Player.getScore() >= r.getScoreNeeded())
 				{
-						System.out.println("Congrats! You just unlocked this room with your amazing lockpicking skills!");
-						Game.setCurrentRoom(r);
-						System.out.println(Game.currentRoom.getDescription());
-				}
-				else
+					System.out.println("Congrats! You just unlocked this room with your amazing lockpicking skills!");
+					Game.setCurrentRoom(r);
+					System.out.println(Game.currentRoom.getDescription());
+				} else
 				{
-					System.out.println("Looks like this door is locked. You need at least " + r.getScoreNeeded() + "gold to enter.");
+					System.out.println("Looks like this door is locked. You need at least " + r.getScoreNeeded()
+							+ "gold to enter.");
 					Menu.MainMenu();
 				}
 			}
 		}
-		
-		if(Game.currentRoom.getPuzzle() != null && Game.currentRoom.getPuzzle().getIsSolved() == false)
+
+		if (Game.currentRoom.getPuzzle() != null && Game.currentRoom.getPuzzle().getIsSolved() == false)
 		{
 			System.out.println(Game.currentRoom.getPuzzle().getDescription());
 			Menu.PuzzleMenu();
-		}
-		else if (Game.getCurrentRoom().hasMonsters())
+		} else if (Game.getCurrentRoom().hasMonsters())
 		{
 			Menu.CombatMenu();
-		}
-		else
+		} else
 			Menu.MainMenu();
 	}
-
 
 }

@@ -2,9 +2,7 @@
  * Author: Brian Torok
  */
 
-
 package Model;
-
 
 public class Monsters extends Character
 {
@@ -15,14 +13,15 @@ public class Monsters extends Character
 	private String winStatement;
 	private String exitStatement;
 	private boolean isDefeated;
-	
+
 	Monsters()
 	{
 		super();
 	}
-	
-	public Monsters(int characterID, String name, Item dropItems, int scoreLoss, double chance,
-			String enterStatement, String winStatement, String exitStatement) {
+
+	public Monsters(int characterID, String name, Item dropItems, int scoreLoss, double chance, String enterStatement,
+			String winStatement, String exitStatement)
+	{
 		super(characterID, name, currentRoom);
 		this.dropItems = dropItems;
 		this.scoreLoss = scoreLoss;
@@ -32,43 +31,63 @@ public class Monsters extends Character
 		this.exitStatement = exitStatement;
 		this.isDefeated = false;
 	}
-	
-	public Item getDropItems() {
+
+	public Item getDropItems()
+	{
 		return dropItems;
 	}
-	public void setDropItems(Item dropItems) {
+
+	public void setDropItems(Item dropItems)
+	{
 		this.dropItems = dropItems;
 	}
-	public int getScoreLoss() {
+
+	public int getScoreLoss()
+	{
 		return scoreLoss;
 	}
-	public void setScoreLoss(int scoreLoss) {
+
+	public void setScoreLoss(int scoreLoss)
+	{
 		this.scoreLoss = scoreLoss;
 	}
-	public double getChance() {
+
+	public double getChance()
+	{
 		return chance;
 	}
-	public void setChance(double chance) {
+
+	public void setChance(double chance)
+	{
 		this.chance = chance;
 	}
-	public String getEnterStatement() {
+
+	public String getEnterStatement()
+	{
 		return enterStatement;
 	}
-	public String getWinStatement() {
+
+	public String getWinStatement()
+	{
 		return winStatement;
 	}
-	public String getExitStatement() {
+
+	public String getExitStatement()
+	{
 		return exitStatement;
 	}
-	public boolean getIsDefeated() {
+
+	public boolean getIsDefeated()
+	{
 		return isDefeated;
 	}
+
 	public void setIsDefeated(boolean b)
 	{
 		this.isDefeated = b;
 	}
-	
-	public void remove()//disables enemy
+
+	public void remove()// disables enemy
 	{
 		setIsDefeated(true);
 	}
