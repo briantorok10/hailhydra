@@ -4,11 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import Controller.*;
 
-import Controller.Game;
-import Controller.Menu;
 
 /**
- * 
+ * @author Jose Moreno
  * @author Brian Torok
  *
  */

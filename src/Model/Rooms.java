@@ -148,11 +148,6 @@ public class Rooms
 			return true;
 	}
 
-	// public String getItem()
-	// {
-	// return items.toString();
-	// }
-
 	public static void moveRooms()
 	{
 		System.out.println(Game.currentRoom.displayExits());

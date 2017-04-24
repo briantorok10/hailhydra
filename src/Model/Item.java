@@ -57,6 +57,24 @@ public class Item // needs to be abstract for effect() method
 		return value;
 	}
 
+	public static void useItem()
+	{
+		if (!Player.inventory.isEmpty())
+		{
+			for (int i = 0; i < Player.inventory.size(); i++)
+			{
+				int use = 0;
+				if(Player.inventory.get(i).name.equals("Snakeskin Oil") && use == 0)
+				{
+					Player.inventory.remove(i);
+				}
+			}
+			System.out.println("You used a Snakeskin Oil and have increased you winning chances this battle.");
+			Menu.CombatMenu();
+		}
+		else
+			System.out.println();
+	}
 	public static void cashOut()
 	{
 		int total = 0;
@@ -66,10 +84,10 @@ public class Item // needs to be abstract for effect() method
 			{
 				if (Player.inventory.get(i).name.equals("Copper Coin")
 						|| Player.inventory.get(i).name.equals("Silver Coin")
-						|| Player.inventory.get(i).name.equals("Gold Coin"))
+						|| Player.inventory.get(i).name.equals("Gold Coin")
+						|| Player.inventory.get(i).name.equals("Bag O'Coins"))
 				{
 					Player.increaseScore(Player.inventory.get(i).getValue());
-					Player.inventory.remove(i);
 					total += Player.inventory.get(i).getValue();
 					Player.inventory.remove(i);
 				}
@@ -80,7 +98,6 @@ public class Item // needs to be abstract for effect() method
 			System.out.println();
 			System.out.println("Your Score: " + Player.getScore() + "G");
 			System.out.println("This is what you're lugging around:");
-			// Still needs some work
 
 			if (Player.inventory.isEmpty())
 			{
@@ -95,7 +112,7 @@ public class Item // needs to be abstract for effect() method
 			}
 			Menu.InventoryMenu();
 		} else
-			System.out.println("We require at least 20 gold worth of items before cashing out!");
+			System.out.println("You don't have anything to cash out!");
 		Menu.MainMenu();
 	}
 

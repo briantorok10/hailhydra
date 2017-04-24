@@ -123,7 +123,7 @@ public class Menu
 
 	public static void CombatMenu()
 	{
-
+		System.out.println();
 		System.out.println(Game.currentRoom.getMonsters().getEnterStatement());
 		System.out.println("What would you like to do?");
 		System.out.println("1. Attack " + Game.currentRoom.getMonsters().getName());
@@ -140,6 +140,7 @@ public class Menu
 			Rooms.moveRooms();
 		} else if (options.equals("3"))
 		{
+			Item.useItem();
 			Menu.CombatMenu();
 		} else
 		{
