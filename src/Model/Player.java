@@ -2,6 +2,9 @@ package Model;
 import java.util.ArrayList;
 import Controller.*;
 
+import Controller.Game;
+import Controller.Menu;
+
 /**
  * 
  * @author Brian Torok
@@ -9,10 +12,10 @@ import Controller.*;
  */
 public class Player extends Character
 {
-	private static Rooms room;
 	private static String username;
 	private static int score;
 	public static ArrayList<Item> inventory = new ArrayList<Item>();
+	public static double increaseChance = 0;
 
 	public Player()
 	{
@@ -59,6 +62,14 @@ public class Player extends Character
 	{
 		score -= x;
 	}
+	public static double getIncreaseChance()
+	{
+		return increaseChance;
+	}
+	public static void setIncreaseChance(double x)
+	{
+		increaseChance = x;
+	}
 	
 
 	
@@ -67,7 +78,7 @@ public class Player extends Character
 	//Goes through the battle process
 	public static void attack(Player p, Monsters m)
 	{
-		double playerChance = Math.random();
+		double playerChance = Math.random() - (m.getChance()*increaseChance);
 		if (playerChance >= m.getChance())
 		{
 			//Lose Condition
@@ -79,17 +90,13 @@ public class Player extends Character
 		{
 			//win condition
 			m.remove();
-			Player.increaseScore(Game.currentRoom.getMonsters().getScoreLoss());
+			increaseScore(Game.currentRoom.getMonsters().getScoreLoss());
+			setIncreaseChance(getIncreaseChance() + Game.currentRoom.getMonsters().getDropItems().getIncChance());
 			System.out.println(m.getWinStatement());
 			Game.currentRoom.getMonsters().setIsDefeated(true);
-			Player.setInventory(Game.currentRoom.getMonsters().getDropItems());
+			setInventory(Game.currentRoom.getMonsters().getDropItems());
 			Menu.MainMenu();
 		}
-	}
-	
-	public void useItem(Item i)//uses effect from item objects
-	{
-		i.effect();
 	}
 	
 	public void escape(Monsters m)

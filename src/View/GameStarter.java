@@ -17,7 +17,6 @@ public class GameStarter
 		Game.play();
 	}
 		
-
 }
 
 

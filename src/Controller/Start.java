@@ -60,11 +60,11 @@ public class Start
 		}
 		catch (IOException e) {
 			System.out.println("Please choose one of the options by typing their corresponding digit");
-			startMessage();
+			Menu.MainMenu();
 		}
 		catch (InputMismatchException e) {
 			System.out.println("Please choose one of the options by typing their corresponding digit");
-			startMessage();
+			Menu.MainMenu();
 		}
 		input.close();
 		

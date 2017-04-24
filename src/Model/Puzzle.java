@@ -6,12 +6,12 @@ package Model;
 public class Puzzle
 {
 	private String puzzleName, solution, description, correctMSG, incorrectMSG, hint;
-	private int puzzleID;
+	private int puzzleID,gold;
 	private Item item;
 	private boolean isSolved;
 	//private Item item;
 	public Puzzle(String puzzleName, int puzzleID, String solution, String description, String correctMSG,
-			String incorrectMSG, String hint, boolean isSolved, Item item)
+			String incorrectMSG, String hint, boolean isSolved, Item item,int gold)
 	{
 		this.puzzleName = puzzleName;
 		this.puzzleID = puzzleID;
@@ -22,6 +22,7 @@ public class Puzzle
 		this.hint = hint;
 		this.isSolved = isSolved;
 		this.item = item;
+		this.gold = gold;
 	}
 	public String getPuzzleName()
 	{
@@ -95,5 +96,9 @@ public class Puzzle
 	public void setItem(Item item)
 	{
 		this.item = item;
+	}
+	public int getGold()
+	{
+		return gold;
 	}
 }

@@ -54,6 +54,7 @@ public class Game
 			if(file.exists())
 			{
 				System.out.println("This name already exists, please use a different name!");
+				create(p);
 			} else {
 				System.out.println("Profile being created, please wait....");
 				PrintWriter writer = new PrintWriter(new FileWriter(file));
@@ -88,7 +89,6 @@ public class Game
 			}
 		}
 	}
-
 	public void load(Player p)
 
 	{
@@ -132,29 +132,30 @@ public class Game
 	public static void initializeGame() 
 	{
 		
-		Item A01,A02,A03,A04,A05,A06,A07,A08,A09,A10;
+		Item A01,A02,A03,A04,A05,A06,A07,A08,A09,A10,A11;
 		
 		A01 = new Item("Copper Coin",0,"A coin made of copper that holds a small value.","Add 10 gold to your bag",10);
 		A02 = new Item("Silver Coin",1,"A coin made of silver that holds a medium value.","Add 50 gold to your bag",50);
 		A03 = new Item("Gold Coin",2,"A coin made of pure gold that holds a high value.","Add 100 gold to your bag",100);
 		A04 = new Item("Short Pants",3,"Incredibly short pants. This will be found when fighting the Shorty Pants monster (E03) and will allow you to progress forward.","Puzzle item",0);
-		A05 = new Item("Revolver",4,"A 6 shot revolver","Add 25% chance to your favor in battle.",400);
+		A05 = new Item("Revolver",4,"A 6 shot revolver","Add 25% chance to your favor in battle.",400, .2);
 		A06 = new Item("Crystal Skull",5,"Skull made of pure crystal. Has a sort of mystical glow about it. When you stare deep into the eyes of the skull you can hear the voices of ancient beings calling you to the other side.","Add 1000 gold to your bag",1000);
-		A07 = new Item("Snakeskin Oil",6,"There's a snake in my boot!","One time consumable to increase battle chance in your favor by 5%",20);
+		A07 = new Item("Snakeskin Oil",6,"There's a snake in my boot!","One time consumable to increase battle chance in your favor by 5%",20, .05);
 		A08 = new Item("Conductor's Key",7,"Use this key to gain access to areas on the train","Open a locked door to move forward.",0);
 		A09 = new Item("Queen Elizabeth's Diamond Broach",8,"Queen Elizabeth of England’s priceless diamond broach. Worth and extremely large sum of money to the right buyer. Useless otherwise.","Sell for an extremely large amount of money.",1000000);
-		A10 = new Item("Miniscule Kitchen Knife",9,"An extremely small knife maybe used for cutting carrots.Could be a weapon against small mice.","Add 5% chance to your favor in battle",50);
+		A10 = new Item("Miniscule Kitchen Knife",9,"An extremely small knife maybe used for cutting carrots.Could be a weapon against small mice.","Add 5% chance to your favor in battle",50, .05);
+		A11 = new Item("Bag O'Coins", 10, "A bag full of wonders... and money", "Special Item which contains 10 Gold Coins",1000);
 		
 		Puzzle P1,P2,P3,P4,P5,P6,P7,P8;
 		
-		P1 = new Puzzle("Coin",0,"Coin","What has a head and a tail, but no body?","Congratulations! You have received a Copper Coin for solving the puzzle!","This riddle ain't worth a cent of my time!","Small, round, and jingles in your pocket.",false, A01);
-		P2 = new Puzzle("Food",1,"Egg","What has to be broken before you can use it?","Congratulations! You have received a miniscule kitchen knife for solving the puzzle!","Ah well I might come back later, it's not like it's too important.","Golden Goose",false,A10);
-		P3 = new Puzzle("Dessert",2,"Doughnut","What has no beginning, end, or middle?","Congratulations! You passed the test and you may proceed.","There might be a delicacy behind this riddle, but it may just not be the time or place for such things.","Policeman's favorite food.",false,A10);
-		P4 = new Puzzle("Key",3,"Key","What force and strength cannot get through, I with my unique teeth can do. What am I?","Nice work! You got the Conductor's Key for solving the puzzle.","I know there's some kind of trick to this puzzle, I'll come back later.","The only way to a door's heart.",false,A08);
-		P5 = new Puzzle("History",4,"History","You will always find me in the past. I can be created in the present, but the future can never taint me. What am I?","Congratulations! You got the Silver Coin for solving the puzzle.","Well to my prior knowledge, sometimes its just not worth losing on this kind of gamble. I just lost a 2 points.","...repeats itself.",false,A02);
-		P6 = new Puzzle("Stamp",5,"Stamp","I sit in a corner while traveling around the world. What am I?","Congratulations! You passed the test you may proceed.","Eh doesn't hurt to come back in a bit.","25 cents for a sticker?!",false,null);
-		P7 = new Puzzle("Breath",6,"Breath","I'm light as a feather, yet the strongest man can't hold me for more than 5 minutes. What am I?","Congratulations! You got a Gold Coin for your troubles.","You should really have entertained the Romanian beauty, she was really nice. Oh, well, that just cost you 5 points.","Water is not good for the lungs.",false,A03);
-		P8 = new Puzzle("Telephone",7,"Telephone","You answer me, although I never ask you questions. What am I?","Congrats, you just acquired 10 gold coins to add to your collection","Too much dead air, I'll move on for now.","Ring ring, who is it?",false,/*This one need to be multiplied by 10*/A03);
+		P1 = new Puzzle("Coin",0,"Coin","What has a head and a tail, but no body?","Congratulations! You have received a Copper Coin for solving the puzzle!","This riddle ain't worth a cent of my time!","Small, round, and jingles in your pocket.",false, A01,7);
+		P2 = new Puzzle("Food",1,"Egg","What has to be broken before you can use it?","Congratulations! You have received a miniscule kitchen knife for solving the puzzle!","Ah well I might come back later, it's not like it's too important.","Golden Goose",false,A10,14);
+		P3 = new Puzzle("Dessert",2,"Doughnut","What has no beginning, end, or middle?","Congratulations! You passed the test and you may proceed.","There might be a delicacy behind this riddle, but it may just not be the time or place for such things.","Policeman's favorite food.",false,A10,20);
+		P4 = new Puzzle("Key",3,"Key","What force and strength cannot get through, I with my unique teeth can do. What am I?","Nice work! You got the Conductor's Key for solving the puzzle.","I know there's some kind of trick to this puzzle, I'll come back later.","The only way to a door's heart.",false,A08,29);
+		P5 = new Puzzle("History",4,"History","You will always find me in the past. I can be created in the present, but the future can never taint me. What am I?","Congratulations! You got the Silver Coin for solving the puzzle.","Well to my prior knowledge, sometimes its just not worth losing on this kind of gamble. I just lost a 2 points.","...repeats itself.",false,A02,40);
+		P6 = new Puzzle("Stamp",5,"Stamp","I sit in a corner while traveling around the world. What am I?","Congratulations! You passed the test you may proceed.","Eh doesn't hurt to come back in a bit.","25 cents for a sticker?!",false,null,50);
+		P7 = new Puzzle("Breath",6,"Breath","I'm light as a feather, yet the strongest man can't hold me for more than 5 minutes. What am I?","Congratulations! You got a Gold Coin for your troubles.","You should really have entertained the Romanian beauty, she was really nice. Oh, well, that just cost you 5 points.","Water is not good for the lungs.",false,A03,65);
+		P8 = new Puzzle("Telephone",7,"Telephone","You answer me, although I never ask you questions. What am I?","Congrats, you just acquired 10 gold coins to add to your collection","Too much dead air, I'll move on for now.","Ring ring, who is it?",false,A11,70);
 		//I said the answer is skull!
 		
 		Monsters e00 = new Monsters(0, "Train Lackey", A01, 5, .95, "A slender Train Lackey holds a wrench in front of you what shall you do?", "You got the copper coin from the pocket of the knocked out lackey! RECIEVED: Copper Coin", "The Lackey can live another day.");

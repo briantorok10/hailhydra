@@ -1,7 +1,9 @@
 package Controller;
 
 import java.util.Scanner;
-
+import Model.Item;
+import Model.Player;
+import Model.Rooms;
 import Model.*;
 
 /**
@@ -20,7 +22,7 @@ public class Menu
 		System.out.println("\n-----Main Menu-----");
 		System.out.println("What would you like to do?");
 		System.out.println("1. Move Rooms");
-		System.out.println("2. Check Inventory");
+		System.out.println("2. Check Inventory and Score");
 		System.out.println("3. Help Menu");
 		System.out.println("4. Exit Game");
 
@@ -34,7 +36,7 @@ public class Menu
 			break;
 		case 2:
 
-			System.out.println("Your Score: " + Player.getScore());
+			System.out.println("Your Score: " + Player.getScore() + "G");
 			System.out.println("This is what you're lugging around:");
 			//Still needs some work
 
@@ -46,11 +48,11 @@ public class Menu
 			{
 				for (Item i: Player.inventory)
 				{
-					System.out.println(i.getName() + " - " + i.getDescription());
+					System.out.println(i.getName() + " - " + i.getUse());
 				}
 			}
 
-			Menu.MainMenu();
+			Menu.InventoryMenu();
 
 			break;
 		case 3:
@@ -93,6 +95,8 @@ public class Menu
 			{
 				System.out.println("\n" + Game.currentRoom.getPuzzle().getCorrectMSG());
 				Game.currentRoom.getPuzzle().setSolved(true);
+				Player.setIncreaseChance(Player.getIncreaseChance() + Game.currentRoom.getPuzzle().getItem().getIncChance());
+				Player.increaseScore(Game.currentRoom.getPuzzle().getGold());
 				Player.setInventory(Game.currentRoom.getPuzzle().getItem());
 				MainMenu();
 			}
@@ -105,10 +109,12 @@ public class Menu
 			PuzzleMenu();
 			break;
 		case 3:
-			Game.printHelp();
+			System.out.println(Game.currentRoom.getPuzzle().getHint());
+			PuzzleMenu();
 			break;
 		case 4:
-			
+			System.out.println(Game.currentRoom.getDescription());
+			MainMenu();
 			break;
 		default:
 			System.out.println();
@@ -143,5 +149,24 @@ public class Menu
 			Menu.CombatMenu();
 		}
 
+	}
+	public static void InventoryMenu()
+	{
+		System.out.println();
+		System.out.println("\n-----Inventory Menu-----");
+		System.out.println("What would you like to do?");
+		System.out.println("1. Cash Out Coins");
+		System.out.println("2. Exit Inventory");
+
+		int options = input.nextInt();
+
+		switch(options)	{
+
+		case 1:
+			Item.cashOut();
+			break;
+		case 2:
+			MainMenu();
+		}
 	}
 }
