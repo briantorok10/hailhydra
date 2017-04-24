@@ -8,7 +8,7 @@ import Controller.*;
 /**
  * @author Jose Moreno
  * @author Brian Torok
- *
+ * @author Jerry Chambers
  */
 public class Player extends Character implements Serializable
 {

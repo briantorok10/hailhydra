@@ -1,18 +1,15 @@
 package Controller;
 
 import java.util.Scanner;
-import Model.Item;
-import Model.Player;
-import Model.Rooms;
-import Model.*;
 
 import Controller.Game;
 import Model.*;
 
+
 /**
  * 
  * @author Jose Moreno & Brian Torok
- *
+ * @editor Jerry Chambers
  */
 
 public class Menu
@@ -29,9 +26,14 @@ public class Menu
 		System.out.println("3. Help Menu");
 		System.out.println("4. Exit Game");
 
+		
+		
+		
+		
 		int options = input.nextInt();
 
-		switch (options) {
+		switch(options)	{
+
 		case 1:
 			Rooms.moveRooms();
 			break;
@@ -39,15 +41,15 @@ public class Menu
 
 			System.out.println("Your Score: " + Player.getScore() + "G");
 			System.out.println("This is what you're lugging around:");
-			// Still needs some work
+			//Still needs some work
 
 			if (Player.inventory.isEmpty())
 			{
-				System.out.println(
-						"You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
-			} else
+				System.out.println("You don't seem to be carrying anything but the clothes on your back.\nWhat kind of a thief are ya?");
+			}
+			else
 			{
-				for (Item i : Player.inventory)
+				for (Item i: Player.inventory)
 				{
 					System.out.println(i.getName() + " - " + i.getUse());
 				}
@@ -60,11 +62,13 @@ public class Menu
 			Game.printHelp();
 			break;
 		case 4:
-			System.out.println("\nDo you want to save the game? Y / N");
+			System.out.println("\nDo you want to save the game? Y / N");			
 			if (Game.input.next().equalsIgnoreCase("Y"))
 			{
 				Game.save();
-			} else
+				System.exit(0);
+			}
+			else
 				System.exit(0);
 			break;
 		default:
@@ -72,6 +76,7 @@ public class Menu
 			break;
 
 		}
+
 
 	}
 
@@ -85,7 +90,7 @@ public class Menu
 
 		int options = input.nextInt();
 
-		switch (options) {
+		switch(options)	{
 
 		case 1:
 			System.out.println("\nWhat is your guess?");
@@ -94,12 +99,11 @@ public class Menu
 			{
 				System.out.println("\n" + Game.currentRoom.getPuzzle().getCorrectMSG());
 				Game.currentRoom.getPuzzle().setSolved(true);
-				Player.setIncreaseChance(
-						Player.getIncreaseChance() + Game.currentRoom.getPuzzle().getItem().getIncChance());
 				Player.increaseScore(Game.currentRoom.getPuzzle().getGold());
 				Player.setInventory(Game.currentRoom.getPuzzle().getItem());
 				MainMenu();
-			} else
+			}
+			else
 				System.out.println("\n" + Game.currentRoom.getPuzzle().getIncorrectMSG());
 			PuzzleMenu();
 			break;
@@ -123,33 +127,32 @@ public class Menu
 
 	public static void CombatMenu()
 	{
-		System.out.println();
+
 		System.out.println(Game.currentRoom.getMonsters().getEnterStatement());
 		System.out.println("What would you like to do?");
 		System.out.println("1. Attack " + Game.currentRoom.getMonsters().getName());
 		System.out.println("2. Run");
 		System.out.println("3. Use Item");
 
+
 		String options = input.next();
 
 		if (options.equals("1"))
 		{
 			Player.attack(Game.player, Game.currentRoom.getMonsters());
-		} else if (options.equals("2"))
+		}else if(options.equals("2"))
 		{
 			Rooms.moveRooms();
-		} else if (options.equals("3"))
+		}else if(options.equals("3"))
 		{
-			Item.useItem();
 			Menu.CombatMenu();
-		} else
+		}else
 		{
 			System.out.println("That's not a valid option. Try typing 1, 2, or 3.\n");
 			Menu.CombatMenu();
 		}
 
 	}
-
 	public static void InventoryMenu()
 	{
 		System.out.println();
@@ -160,7 +163,7 @@ public class Menu
 
 		int options = input.nextInt();
 
-		switch (options) {
+		switch(options)	{
 
 		case 1:
 			Item.cashOut();

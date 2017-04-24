@@ -19,7 +19,7 @@ import java.util.Scanner;
 /**
  * 
  * @author Jose Moreno
- *
+ * @author Jerry Chambers
  */
 public class Game
 {
@@ -73,18 +73,13 @@ public class Game
 	public static void save()
 	{	
 		Player p = Game.player;
-		System.out.println("line 78");
 		String username = p.getUsername();
 	//	File file = new File(username + ".trainraid");
-		System.out.println("line 81");
 		Game.player.setCurrentRoom(currentRoom);
-		System.out.println("line 82");
 		try{
 		FileOutputStream fos = new FileOutputStream(username + ".dat");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		System.out.println("line 86");
 		oos.writeObject(Game.player);
-		System.out.println("line 88");
 		oos.flush();
 		oos.close();
 		System.out.println("Save attempt - success is unknown");
